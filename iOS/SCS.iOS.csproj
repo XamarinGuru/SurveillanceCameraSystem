@@ -24,7 +24,7 @@
     <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
     <MtouchFastDev>true</MtouchFastDev>
     <IOSDebuggerPort>47330</IOSDebuggerPort>
-    <MtouchLink>None</MtouchLink>
+    <MtouchLink>SdkOnly</MtouchLink>
     <MtouchArch>i386, x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
@@ -112,34 +112,42 @@
     <ImageAsset Include="Assets.xcassets\Contents.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\MessageDialog.cs" />
-    <Compile Include="Helpers\Utils.cs" />
-    <Compile Include="ViewControllers\DetailViewControllers\BrowseItemDetailViewController.cs" />
-    <Compile Include="ViewControllers\DetailViewControllers\BrowseItemDetailViewController.designer.cs">
-      <DependentUpon>BrowseItemDetailViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\AboutViewController.cs" />
-    <Compile Include="ViewControllers\AboutViewController.designer.cs">
-      <DependentUpon>AboutViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\BrowseViewController.cs" />
-    <Compile Include="ViewControllers\BrowseViewController.designer.cs">
-      <DependentUpon>BrowseViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\ItemNewViewController.cs" />
-    <Compile Include="ViewControllers\ItemNewViewController.designer.cs">
-      <DependentUpon>ItemNewViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\LoginViewController.cs" />
-    <Compile Include="ViewControllers\LoginViewController.designer.cs">
-      <DependentUpon>LoginViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="ViewControllers\TabBarController.cs" />
     <Compile Include="ViewControllers\TabBarController.designer.cs">
       <DependentUpon>TabBarController.cs</DependentUpon>
     </Compile>
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Main.cs" />
+    <Compile Include="ViewControllers\LoginViewController.cs" />
+    <Compile Include="ViewControllers\LoginViewController.designer.cs">
+      <DependentUpon>LoginViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\DashboardViewController.cs" />
+    <Compile Include="ViewControllers\DashboardViewController.designer.cs">
+      <DependentUpon>DashboardViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\BaseViewController.cs" />
+    <Compile Include="ViewControllers\BaseViewController.designer.cs">
+      <DependentUpon>BaseViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\CameraViewController.cs" />
+    <Compile Include="ViewControllers\CameraViewController.designer.cs">
+      <DependentUpon>CameraViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\SettingsViewController.cs" />
+    <Compile Include="ViewControllers\SettingsViewController.designer.cs">
+      <DependentUpon>SettingsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\HelpViewController.cs" />
+    <Compile Include="ViewControllers\HelpViewController.designer.cs">
+      <DependentUpon>HelpViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomComponents\CameraListView.cs" />
+    <Compile Include="CustomComponents\CameraListView.designer.cs">
+      <DependentUpon>CameraListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\AppSettings.cs" />
+    <Compile Include="CustomComponents\CustomSlider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
@@ -147,8 +155,63 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="LaunchScreen.storyboard" />
     <InterfaceDefinition Include="Main.storyboard" />
+    <InterfaceDefinition Include="CustomComponents\CameraListView.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="CustomComponents\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bg_btn_login_dark.png" />
+    <BundleResource Include="Resources\bg_btn_scan_qr_dark.png" />
+    <BundleResource Include="Resources\bg_dark_dark.png" />
+    <BundleResource Include="Resources\bg_edit_port_dark.png" />
+    <BundleResource Include="Resources\bg_edit_psw_dark.png" />
+    <BundleResource Include="Resources\bg_edit_server_ip_dark.png" />
+    <BundleResource Include="Resources\icon_logo_dark.png" />
+    <BundleResource Include="Resources\icon_tab_camera_active_dark.png" />
+    <BundleResource Include="Resources\icon_tab_camera_inactive_dark.png" />
+    <BundleResource Include="Resources\icon_tab_dashboard_active_dark.png" />
+    <BundleResource Include="Resources\icon_tab_dashboard_inactive_dark.png" />
+    <BundleResource Include="Resources\icon_tab_help_active_dark.png" />
+    <BundleResource Include="Resources\icon_tab_help_inactive_dark.png" />
+    <BundleResource Include="Resources\icon_tab_settings_active_dark.png" />
+    <BundleResource Include="Resources\icon_tab_settings_inactive_dark.png" />
+    <BundleResource Include="Resources\icon_camera_back_dark.png" />
+    <BundleResource Include="Resources\icon_camera_front_dark.png" />
+    <BundleResource Include="Resources\bg_camera_back.png" />
+    <BundleResource Include="Resources\bg_camera_front.png" />
+    <BundleResource Include="Resources\bg_tab_bottom_dark.png" />
+    <BundleResource Include="Resources\bg_top_dark.png" />
+    <BundleResource Include="Resources\bg_symbol_number_dark.png" />
+    <BundleResource Include="Resources\bg_action_inactive_dark.png" />
+    <BundleResource Include="Resources\bg_tab_bottom.png" />
+    <BundleResource Include="Resources\bg_zoom_bar_dark.png" />
+    <BundleResource Include="Resources\icon_cameradisconnect_active_dark.png" />
+    <BundleResource Include="Resources\icon_cameradisconnect_inactive_dark.png" />
+    <BundleResource Include="Resources\icon_motiondetect_actie_dark.png" />
+    <BundleResource Include="Resources\icon_motiondetect_inactie_dark.png" />
+    <BundleResource Include="Resources\icon_notification_actie_dark.png" />
+    <BundleResource Include="Resources\icon_notification_inactie_dark.png" />
+    <BundleResource Include="Resources\icon_slider_thumb_dark.png" />
+    <BundleResource Include="Resources\icon_sounder_actie_dark.png" />
+    <BundleResource Include="Resources\icon_sounder_inactie_dark.png" />
+    <BundleResource Include="Resources\icon_tripwire_actie_dark.png" />
+    <BundleResource Include="Resources\icon_tripwire_inactie_dark.png" />
+    <BundleResource Include="Resources\icon_zoom_in_dark.png" />
+    <BundleResource Include="Resources\icon_zoom_out_dark.png" />
+    <BundleResource Include="Resources\bg_zoom_control_dark.png" />
+    <BundleResource Include="Resources\bg_action_active_dark.png" />
+    <BundleResource Include="Resources\bg_toggle_dark.png" />
+    <BundleResource Include="Resources\bg_toggle_thumb_dark.png" />
+    <BundleResource Include="Resources\bg_txt_settings_dark.png" />
+    <BundleResource Include="Resources\bg_txt_slider_dark.png" />
+    <BundleResource Include="Resources\bg_slider_dark.png" />
+    <BundleResource Include="Resources\bg_slider_track.png" />
+    <BundleResource Include="Resources\bg_slider_track1_dark.png" />
+    <BundleResource Include="Resources\bg_slider_track2_dark.png" />
+    <BundleResource Include="Resources\bg_slider1_dark.png" />
   </ItemGroup>
   <Import Project="..\SCS\SCS.projitems" Label="Shared" Condition="Exists('..\SCS\SCS.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

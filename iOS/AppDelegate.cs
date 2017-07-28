@@ -18,17 +18,15 @@ namespace SCS.iOS
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            App.Initialize();
+            //App.Initialize();
 
 
 
             // Select first UIViewController.
-            if (Settings.IsLoggedIn)
-                Window.RootViewController = UIStoryboard.FromName("Main", null)
-                                                 .InstantiateViewController("tabViewController");
-            else
-                Window.RootViewController = UIStoryboard.FromName("Main", null)
-                                                 .InstantiateViewController("loginViewController");
+            //if (Settings.IsLoggedIn)
+            //    Window.RootViewController = UIStoryboard.FromName("Main", null).InstantiateViewController("tabViewController");
+            //else
+                //Window.RootViewController = UIStoryboard.FromName("Main", null).InstantiateViewController("loginViewController");
 
             return true;
         }

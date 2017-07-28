@@ -11,13 +11,9 @@ using UIKit;
 
 namespace SCS.iOS
 {
-    [Register ("LoginViewController")]
-    partial class LoginViewController
+    [Register ("HelpViewController")]
+    partial class HelpViewController
     {
-        [Action ("ActionLogin:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void ActionLogin (UIKit.UIButton sender);
-
         void ReleaseDesignerOutlets ()
         {
         }

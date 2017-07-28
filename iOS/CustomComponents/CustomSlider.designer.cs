@@ -7,17 +7,12 @@
 using Foundation;
 using System;
 using System.CodeDom.Compiler;
-using UIKit;
 
-namespace SCS.iOS
+namespace SCS.iOS.CustomComponents
 {
-    [Register ("LoginViewController")]
-    partial class LoginViewController
+    [Register ("RangeSliderControl")]
+    partial class RangeSliderControl
     {
-        [Action ("ActionLogin:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void ActionLogin (UIKit.UIButton sender);
-
         void ReleaseDesignerOutlets ()
         {
         }
