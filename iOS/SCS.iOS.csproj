@@ -208,7 +208,6 @@
     <BundleResource Include="Resources\bg_txt_settings_dark.png" />
     <BundleResource Include="Resources\bg_txt_slider_dark.png" />
     <BundleResource Include="Resources\bg_slider_dark.png" />
-    <BundleResource Include="Resources\bg_slider_track.png" />
     <BundleResource Include="Resources\bg_slider_track1_dark.png" />
     <BundleResource Include="Resources\bg_slider_track2_dark.png" />
     <BundleResource Include="Resources\bg_slider1_dark.png" />

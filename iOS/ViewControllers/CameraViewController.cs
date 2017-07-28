@@ -53,5 +53,15 @@ namespace SCS.iOS
 
 			sender.Selected = !sender.Selected;
 		}
+
+        partial void ActionCameraZoom(UIButton sender)
+        {
+            Console.WriteLine("Camera Zoom button clicked!");
+        }
+
+        partial void ActionCameraDirection(UIButton sender)
+        {
+            Console.WriteLine("Camera Direction button" + sender.Tag + " clicked!");
+        }
     }
 }
