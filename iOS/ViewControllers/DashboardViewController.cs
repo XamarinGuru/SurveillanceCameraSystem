@@ -1,7 +1,7 @@
-using Foundation;
 using System;
 using UIKit;
 using CoreGraphics;
+using static SCS.Constants;
 
 namespace SCS.iOS
 {
@@ -15,14 +15,19 @@ namespace SCS.iOS
 		{
 			base.ViewDidLoad();
 
-			//InitCameraSystem();
+			InitTheme();
+            InitCameraSystem();
 		}
 
-        public override void ViewWillLayoutSubviews()
-        {
-            base.ViewWillLayoutSubviews();
-            InitCameraSystem();
-        }
+        public override void InitTheme()
+		{
+            imgCameraFront.Image = GetImageByTheme(FN_ICON_CAMERA_FRONT);
+            imgCameraBack.Image = GetImageByTheme(FN_ICON_CAMERA_BACK);
+
+            lblRecentActivity.TextColor = GetTextColorByTheme();
+
+            btnSymbolNumber.SetBackgroundImage(GetImageByTheme(FN_BG_BTN_SYMBOL_NUMBER), UIControlState.Normal);
+		}
 
 		void InitCameraSystem()
 		{

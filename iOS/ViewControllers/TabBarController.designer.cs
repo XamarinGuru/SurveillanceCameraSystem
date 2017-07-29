@@ -16,6 +16,22 @@ namespace SCS.iOS
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnCamera { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnDashboard { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnHelp { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnSettings { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.NSLayoutConstraint constraintTabBarHeight { get; set; }
 
         [Outlet]
@@ -52,7 +68,27 @@ namespace SCS.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView imgTopBar { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIView tabBar { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIView viewBGTabCamera { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIView viewBGTabDashboard { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIView viewBGTabHelp { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIView viewBGTabSettings { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -64,6 +100,26 @@ namespace SCS.iOS
 
         void ReleaseDesignerOutlets ()
         {
+            if (btnCamera != null) {
+                btnCamera.Dispose ();
+                btnCamera = null;
+            }
+
+            if (btnDashboard != null) {
+                btnDashboard.Dispose ();
+                btnDashboard = null;
+            }
+
+            if (btnHelp != null) {
+                btnHelp.Dispose ();
+                btnHelp = null;
+            }
+
+            if (btnSettings != null) {
+                btnSettings.Dispose ();
+                btnSettings = null;
+            }
+
             if (constraintTabBarHeight != null) {
                 constraintTabBarHeight.Dispose ();
                 constraintTabBarHeight = null;
@@ -109,9 +165,34 @@ namespace SCS.iOS
                 imgTabIconSettings = null;
             }
 
+            if (imgTopBar != null) {
+                imgTopBar.Dispose ();
+                imgTopBar = null;
+            }
+
             if (tabBar != null) {
                 tabBar.Dispose ();
                 tabBar = null;
+            }
+
+            if (viewBGTabCamera != null) {
+                viewBGTabCamera.Dispose ();
+                viewBGTabCamera = null;
+            }
+
+            if (viewBGTabDashboard != null) {
+                viewBGTabDashboard.Dispose ();
+                viewBGTabDashboard = null;
+            }
+
+            if (viewBGTabHelp != null) {
+                viewBGTabHelp.Dispose ();
+                viewBGTabHelp = null;
+            }
+
+            if (viewBGTabSettings != null) {
+                viewBGTabSettings.Dispose ();
+                viewBGTabSettings = null;
             }
 
             if (viewContent != null) {

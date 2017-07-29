@@ -1,6 +1,4 @@
-using Foundation;
 using System;
-using UIKit;
 
 namespace SCS.iOS
 {
@@ -14,7 +12,13 @@ namespace SCS.iOS
 		{
 			base.ViewDidLoad();
 
-			//NavigationItem.Title = ViewModel.Title;
+			InitTheme();
+		}
+
+		public override void InitTheme()
+		{
+            lblVersion.TextColor = GetTextColorByTheme();
+            lblDescription.TextColor = GetDescriptionColorByTheme();
 		}
     }
 }

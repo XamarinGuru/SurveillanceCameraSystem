@@ -16,7 +16,39 @@ namespace SCS.iOS
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnCamera { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnSliderThumb { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnZoomIn { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnZoomOut { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.NSLayoutConstraint constraintTabBarHeight { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView imgCameraInactive { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView imgMotionInactive { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView imgNotificationInactive { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView imgSounderInactive { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -25,6 +57,18 @@ namespace SCS.iOS
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIImageView imgTabBottomKitchen { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView imgTripwireInactive { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView imgZoomBar { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView imgZoomControl { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -37,6 +81,34 @@ namespace SCS.iOS
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIView tabBar { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIView viewBackground { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIView viewBottomBar { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIView viewBottomBarCamera { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIView viewBottomBarMotion { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIView viewBottomBarNotification { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIView viewBottomBarSounder { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIView viewBottomBarTripwire { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -100,9 +172,49 @@ namespace SCS.iOS
 
         void ReleaseDesignerOutlets ()
         {
+            if (btnCamera != null) {
+                btnCamera.Dispose ();
+                btnCamera = null;
+            }
+
+            if (btnSliderThumb != null) {
+                btnSliderThumb.Dispose ();
+                btnSliderThumb = null;
+            }
+
+            if (btnZoomIn != null) {
+                btnZoomIn.Dispose ();
+                btnZoomIn = null;
+            }
+
+            if (btnZoomOut != null) {
+                btnZoomOut.Dispose ();
+                btnZoomOut = null;
+            }
+
             if (constraintTabBarHeight != null) {
                 constraintTabBarHeight.Dispose ();
                 constraintTabBarHeight = null;
+            }
+
+            if (imgCameraInactive != null) {
+                imgCameraInactive.Dispose ();
+                imgCameraInactive = null;
+            }
+
+            if (imgMotionInactive != null) {
+                imgMotionInactive.Dispose ();
+                imgMotionInactive = null;
+            }
+
+            if (imgNotificationInactive != null) {
+                imgNotificationInactive.Dispose ();
+                imgNotificationInactive = null;
+            }
+
+            if (imgSounderInactive != null) {
+                imgSounderInactive.Dispose ();
+                imgSounderInactive = null;
             }
 
             if (imgTabBottomBackdoor != null) {
@@ -113,6 +225,21 @@ namespace SCS.iOS
             if (imgTabBottomKitchen != null) {
                 imgTabBottomKitchen.Dispose ();
                 imgTabBottomKitchen = null;
+            }
+
+            if (imgTripwireInactive != null) {
+                imgTripwireInactive.Dispose ();
+                imgTripwireInactive = null;
+            }
+
+            if (imgZoomBar != null) {
+                imgZoomBar.Dispose ();
+                imgZoomBar = null;
+            }
+
+            if (imgZoomControl != null) {
+                imgZoomControl.Dispose ();
+                imgZoomControl = null;
             }
 
             if (lblTabIconBackdoor != null) {
@@ -128,6 +255,41 @@ namespace SCS.iOS
             if (tabBar != null) {
                 tabBar.Dispose ();
                 tabBar = null;
+            }
+
+            if (viewBackground != null) {
+                viewBackground.Dispose ();
+                viewBackground = null;
+            }
+
+            if (viewBottomBar != null) {
+                viewBottomBar.Dispose ();
+                viewBottomBar = null;
+            }
+
+            if (viewBottomBarCamera != null) {
+                viewBottomBarCamera.Dispose ();
+                viewBottomBarCamera = null;
+            }
+
+            if (viewBottomBarMotion != null) {
+                viewBottomBarMotion.Dispose ();
+                viewBottomBarMotion = null;
+            }
+
+            if (viewBottomBarNotification != null) {
+                viewBottomBarNotification.Dispose ();
+                viewBottomBarNotification = null;
+            }
+
+            if (viewBottomBarSounder != null) {
+                viewBottomBarSounder.Dispose ();
+                viewBottomBarSounder = null;
+            }
+
+            if (viewBottomBarTripwire != null) {
+                viewBottomBarTripwire.Dispose ();
+                viewBottomBarTripwire = null;
             }
 
             if (viewCameraActive != null) {

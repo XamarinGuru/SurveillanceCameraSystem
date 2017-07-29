@@ -156,11 +156,15 @@ namespace SCS.iOS.CustomComponents
 				if (_trackBackgroundImage != null)
 					return _trackBackgroundImage;
 
-				var image = ImageFromBundle(@"bg_slider1_dark");
+                var image = ImageFromBundle(@"bg_transparent.png");
 				image = image.CreateResizableImage(new UIEdgeInsets(0.0f, 2.0f, 0.0f, 2.0f));
 				_trackBackgroundImage = image;
 
 				return _trackBackgroundImage;
+			}
+			set
+			{
+				_trackBackgroundImage = value;
 			}
 		}
 
@@ -188,7 +192,7 @@ namespace SCS.iOS.CustomComponents
 
 		[Export("TrackCrossedOverImage")]
 		[Browsable(true)]
-		private UIImage TrackCrossedOverImage
+        public UIImage TrackCrossedOverImage
 		{
 			get
 			{
@@ -198,6 +202,10 @@ namespace SCS.iOS.CustomComponents
 				_trackCrossedOverImage = image.ImageWithAlignmentRectInsets(new UIEdgeInsets(-1, 8, 1, 8));
 
 				return _trackCrossedOverImage;
+			}
+			set
+			{
+				_trackCrossedOverImage = value;
 			}
 		}
 
@@ -233,7 +241,7 @@ namespace SCS.iOS.CustomComponents
 
 		[Export("UpperHandleImageNormal")]
 		[Browsable(true)]
-		private UIImage UpperHandleImageNormal
+		public UIImage UpperHandleImageNormal
 		{
 			get
 			{
@@ -246,11 +254,15 @@ namespace SCS.iOS.CustomComponents
 
 				return _upperHandleImageNormal;
 			}
+			set
+			{
+				_upperHandleImageNormal = value;
+			}
 		}
 
 		[Export("UpperHandleImageHighlighted")]
 		[Browsable(true)]
-		private UIImage UpperHandleImageHighlighted
+		public UIImage UpperHandleImageHighlighted
 		{
 			get
 			{
@@ -261,6 +273,10 @@ namespace SCS.iOS.CustomComponents
 				_upperHandleImageHighlighted = image.ImageWithAlignmentRectInsets(new UIEdgeInsets(-1, 8, 1, 8));
 
 				return _upperHandleImageHighlighted;
+			}
+			set
+			{
+				_upperHandleImageHighlighted = value;
 			}
 		}
 
