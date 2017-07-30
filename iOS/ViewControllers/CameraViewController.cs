@@ -109,12 +109,17 @@ namespace SCS.iOS
 
         partial void ActionCameraZoom(UIButton sender)
         {
-            Console.WriteLine("Camera Zoom button clicked!");
+            ShowMessageBox("Camera Zoom button" + sender.Tag + " clicked!", "in line 110 of CameraViewController(ActionCameraZoom).");
         }
 
         partial void ActionCameraDirection(UIButton sender)
         {
-            Console.WriteLine("Camera Direction button" + sender.Tag + " clicked!");
+            ShowMessageBox("Camera Direction button" + sender.Tag + " clicked!", "in line 115 of CameraViewController(ActionCameraDirection).");
+        }
+
+        partial void ActionCameraRecord(UIButton sender)
+        {
+            ShowMessageBox("Camera Record button clicked!", "in line 120 of CameraViewController(ActionCameraRecord).");
         }
     }
 }

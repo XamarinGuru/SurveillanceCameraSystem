@@ -16,19 +16,19 @@ namespace SCS.iOS
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnCameraBack { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnCameraFront { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton btnSymbolNumber { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.NSLayoutConstraint heightViewCameraListView { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView imgCameraBack { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView imgCameraFront { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -42,8 +42,22 @@ namespace SCS.iOS
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIView viewCameraListView { get; set; }
 
+        [Action ("ActionCameraRecord:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void ActionCameraRecord (UIKit.UIButton sender);
+
         void ReleaseDesignerOutlets ()
         {
+            if (btnCameraBack != null) {
+                btnCameraBack.Dispose ();
+                btnCameraBack = null;
+            }
+
+            if (btnCameraFront != null) {
+                btnCameraFront.Dispose ();
+                btnCameraFront = null;
+            }
+
             if (btnSymbolNumber != null) {
                 btnSymbolNumber.Dispose ();
                 btnSymbolNumber = null;
@@ -52,16 +66,6 @@ namespace SCS.iOS
             if (heightViewCameraListView != null) {
                 heightViewCameraListView.Dispose ();
                 heightViewCameraListView = null;
-            }
-
-            if (imgCameraBack != null) {
-                imgCameraBack.Dispose ();
-                imgCameraBack = null;
-            }
-
-            if (imgCameraFront != null) {
-                imgCameraFront.Dispose ();
-                imgCameraFront = null;
             }
 
             if (lblRecentActivity != null) {

@@ -17,6 +17,24 @@ namespace SCS.iOS
 		{
 		}
 
+		public override void ViewDidLoad()
+		{
+			base.ViewDidLoad();
+
+			var g = new UITapGestureRecognizer(() => View.EndEditing(true));
+			View.AddGestureRecognizer(g);
+		}
+
+		public void ShowMessageBox(string title, string message)
+		{
+			InvokeOnMainThread(() =>
+			{
+				var alertView = new UIAlertView(title, message, null, "Ok", null);
+                alertView.Clicked += (sender, e) => { };
+				alertView.Show();
+			});
+		}
+
         #region image
         public string GetFileNameByTheme(string name)
         {

@@ -8,7 +8,7 @@ namespace SCS.iOS
 {
     public partial class TabBarController : BaseViewController
     {
-		public List<UINavigationController> subControllers = new List<UINavigationController>();
+		public List<BaseViewController> subControllers = new List<BaseViewController>();
 		int nCurrentIndex = -1;
 
 		public TabBarController() : base()
@@ -31,6 +31,24 @@ namespace SCS.iOS
 			SetCurrentPage(0);
 		}
 
+		public override bool ShouldAutorotate()
+		{
+            foreach (var vc in subControllers)
+                vc.View.Frame = View.Frame;
+            
+            return nCurrentIndex == 1;
+		}
+
+		//public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations()
+		//{
+		//	return UIInterfaceOrientationMask.Portrait;
+		//}
+
+		//public override UIInterfaceOrientation PreferredInterfaceOrientationForPresentation()
+		//{
+		//	return UIInterfaceOrientation.Portrait;
+		//}
+
 		public override void InitTheme()
 		{
             viewContent.BackgroundColor = GetBackgroundColorByTheme();
@@ -43,18 +61,11 @@ namespace SCS.iOS
 		{
 			var tabVC = (BaseViewController)this.Storyboard.InstantiateViewController(vcIdentifier);
             tabVC.rootVC = this;
-			tabVC.NavigationItem.LeftBarButtonItem = null;
+			tabVC.View.Frame = new CGRect(CGPoint.Empty, viewContent.Frame.Size);
+			tabVC.View.Hidden = true;
 
-            var tabNavVC = new UINavigationController(tabVC);
-            tabNavVC.NavigationBar.SetBackgroundImage(new UIImage(), UIBarMetrics.Default);
-            tabNavVC.View.BackgroundColor = UIColor.Clear;
-            tabNavVC.NavigationBar.BackgroundColor = UIColor.Clear;
-            tabNavVC.NavigationBar.ShadowImage = new UIImage();
-			tabNavVC.View.Frame = new CGRect(CGPoint.Empty, viewContent.Frame.Size);
-			tabNavVC.View.Hidden = true;
-
-            viewContent.AddSubview(tabNavVC.View);
-            subControllers.Add(tabNavVC);
+            viewContent.AddSubview(tabVC.View);
+            subControllers.Add(tabVC);
 		}
 
 		partial void ActionTab(UIButton sender)

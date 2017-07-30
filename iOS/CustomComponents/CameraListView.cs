@@ -26,16 +26,12 @@ namespace SCS.iOS
 			base.AwakeFromNib();
 		}
 
-        public nfloat SetView(CameraListItem item = null)
+        public void SetView(CameraListItem item = null)
         {
             imgBackground.Image = UIImage.FromFile(item.image);
             imgAction.Image = null;
             lblAction.Text = item.image;
             lblTime.Text = item.time;
-
-            LayoutIfNeeded();
-
-            return viewContent.Frame.Size.Height;
         }
 
 		//public void SetHighlight(BaseViewController baseVC)

@@ -162,6 +162,10 @@ namespace SCS.iOS
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void ActionCameraDirection (UIKit.UIButton sender);
 
+        [Action ("ActionCameraRecord:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void ActionCameraRecord (UIKit.UIButton sender);
+
         [Action ("ActionCameraZoom:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void ActionCameraZoom (UIKit.UIButton sender);

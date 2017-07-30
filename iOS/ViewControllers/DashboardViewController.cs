@@ -21,8 +21,8 @@ namespace SCS.iOS
 
         public override void InitTheme()
 		{
-            imgCameraFront.Image = GetImageByTheme(FN_ICON_CAMERA_FRONT);
-            imgCameraBack.Image = GetImageByTheme(FN_ICON_CAMERA_BACK);
+            btnCameraFront.SetBackgroundImage(GetImageByTheme(FN_ICON_CAMERA_FRONT), UIControlState.Normal);
+            btnCameraBack.SetBackgroundImage(GetImageByTheme(FN_ICON_CAMERA_BACK), UIControlState.Normal);
 
             lblRecentActivity.TextColor = GetTextColorByTheme();
 
@@ -31,15 +31,17 @@ namespace SCS.iOS
 
 		void InitCameraSystem()
 		{
+            btnSymbolNumber.SetTitle("20", UIControlState.Normal);
+
             viewCameraListView.LayoutIfNeeded();
             nfloat posX = 0;
 			nfloat posY = 0;
-            var width = viewCameraListView.Frame.Size.Width / 3;
+            var width = View.Frame.Size.Width / 3;
             var height = 80;
 
 			for (var i = 0; i < 20; i++)
 			{
-				posX = i % 3 == 0 ? 0 : posX + width + 1;
+				posX = i % 3 == 0 ? 0 : posX + width;
 				posY = i % 3 != 0 || i == 0 ? posY : posY + height + 1;
                 var rect = new CGRect(posX, posY, width, height);
 
@@ -48,7 +50,13 @@ namespace SCS.iOS
             }
 
             heightViewCameraListView.Constant = posY + height;
-            viewCameraListView.LayoutIfNeeded();
+            viewCameraListView.BackgroundColor = UIColor.White;
 		}
+
+        partial void ActionCameraRecord(UIButton sender)
+        {
+            var msgTitle = sender.Tag == 0 ? "Front" : "Back";
+            ShowMessageBox("Camera button clicked.", "in line 59 of CameraViewController(ActionCameraRecord).");
+        }
     }
 }

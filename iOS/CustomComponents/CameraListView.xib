@@ -87,7 +87,6 @@
         <image name="XamarinLogo" width="220" height="51"/>
         <image name="bg_btn_login_dark.png" width="570" height="112"/>
         <image name="bg_btn_scan_qr_dark.png" width="574" height="107"/>
-        <image name="bg_dark_dark.png" width="750" height="1334"/>
         <image name="bg_edit_port_dark.png" width="206" height="84"/>
         <image name="bg_edit_psw_dark.png" width="572" height="84"/>
         <image name="bg_edit_server_ip_dark.png" width="356" height="84"/>
@@ -103,11 +102,10 @@
         <image name="icon_camera_back_dark.png" width="86" height="87"/>
         <image name="icon_camera_front_dark.png" width="84" height="86"/>
         <image name="bg_camera_back.png" width="750" height="432"/>
-        <image name="bg_tab_bottom_dark.png" width="222" height="61"/>
+        <image name="bg_tab_bottom_dark.png" width="372" height="4"/>
         <image name="bg_top_dark.png" width="750" height="183"/>
         <image name="bg_symbol_number_dark.png" width="55" height="34"/>
         <image name="bg_action_inactive_dark.png" width="148" height="5"/>
-        <image name="bg_tab_bottom.png" width="407" height="39"/>
         <image name="bg_zoom_bar_dark.png" width="366" height="13"/>
         <image name="icon_cameradisconnect_active_dark.png" width="234" height="234"/>
         <image name="icon_cameradisconnect_inactive_dark.png" width="170" height="170"/>
@@ -115,7 +113,7 @@
         <image name="icon_motiondetect_inactie_dark.png" width="166" height="166"/>
         <image name="icon_notification_actie_dark.png" width="232" height="232"/>
         <image name="icon_notification_inactie_dark.png" width="168" height="168"/>
-        <image name="icon_slider_thumb_dark.png" width="33" height="33"/>
+        <image name="icon_slider_thumb_dark.png" width="20" height="20"/>
         <image name="icon_sounder_actie_dark.png" width="230" height="230"/>
         <image name="icon_sounder_inactie_dark.png" width="166" height="166"/>
         <image name="icon_tripwire_actie_dark.png" width="234" height="234"/>
@@ -127,5 +125,56 @@
         <image name="bg_toggle_thumb_dark.png" width="188" height="75"/>
         <image name="bg_txt_settings_dark.png" width="345" height="65"/>
         <image name="bg_txt_slider_dark.png" width="118" height="65"/>
+        <image name="bg_btn_scan_qr_settings_dark.png" width="418" height="75"/>
+        <image name="bg_dark.png" width="750" height="1334"/>
+        <image name="bg_slider_dark.png" width="30" height="22"/>
+        <image name="bg_slider_track1_dark.png" width="300" height="6"/>
+        <image name="bg_slider1_dark.png" width="539" height="19"/>
+        <image name="bg_btn_login_light.png" width="570" height="112"/>
+        <image name="bg_btn_scan_qr_settings_light.png" width="418" height="75"/>
+        <image name="bg_edit_port_light.png" width="206" height="84"/>
+        <image name="bg_edit_psw_light.png" width="572" height="84"/>
+        <image name="bg_edit_server_ip_light.png" width="356" height="84"/>
+        <image name="bg_light.png" width="750" height="1334"/>
+        <image name="icon_logo_light.png" width="905" height="165"/>
+        <image name="bg_top_light.png" width="764" height="184"/>
+        <image name="icon_tab_camera_active_light.png" width="156" height="100"/>
+        <image name="icon_tab_camera_inactive_light.png" width="156" height="100"/>
+        <image name="icon_tab_dashboard_active_light.png" width="144" height="140"/>
+        <image name="icon_tab_dashboard_inactive_light.png" width="144" height="140"/>
+        <image name="icon_tab_help_active_light.png" width="154" height="140"/>
+        <image name="icon_tab_help_inactive_light.png" width="154" height="140"/>
+        <image name="icon_tab_settings_active_light.png" width="138" height="140"/>
+        <image name="icon_tab_settings_inactive_light.png" width="138" height="140"/>
+        <image name="icon_camera_back_light.png" width="86" height="87"/>
+        <image name="icon_camera_front_light.png" width="84" height="86"/>
+        <image name="bg_symbol_number_light.png" width="55" height="34"/>
+        <image name="bg_tab_bottom_light.png" width="372" height="4"/>
+        <image name="bg_zoom_control_light.png" width="617" height="617"/>
+        <image name="icon_cameradisconnect_active_light.png" width="170" height="170"/>
+        <image name="icon_cameradisconnect_inactive_light.png" width="170" height="170"/>
+        <image name="icon_motiondetect_actie_light.png" width="166" height="166"/>
+        <image name="icon_motiondetect_inactie_light.png" width="166" height="166"/>
+        <image name="icon_notification_actie_light.png" width="168" height="168"/>
+        <image name="icon_notification_inactie_light.png" width="168" height="168"/>
+        <image name="icon_slider_thumb_light.png" width="20" height="20"/>
+        <image name="icon_sounder_actie_light.png" width="166" height="166"/>
+        <image name="icon_sounder_inactie_light.png" width="166" height="166"/>
+        <image name="icon_tripwire_actie_light.png" width="170" height="170"/>
+        <image name="icon_tripwire_inactie_light.png" width="170" height="170"/>
+        <image name="icon_zoom_in_light.png" width="106" height="106"/>
+        <image name="icon_zoom_out_light.png" width="106" height="106"/>
+        <image name="bg_zoom_bar_light.png" width="366" height="13"/>
+        <image name="bg_toggle_light.png" width="344" height="83"/>
+        <image name="bg_toggle_thumb_light.png" width="188" height="75"/>
+        <image name="bg_txt_settings_light.png" width="345" height="65"/>
+        <image name="bg_txt_slider_light.png" width="118" height="65"/>
+        <image name="bg_btn_scan_qr_light.png" width="574" height="107"/>
+        <image name="bg_slider_track1_light.png" width="300" height="6"/>
+        <image name="bg_slider_track2.png" width="300" height="6"/>
+        <image name="bg_slider1_light.png" width="539" height="19"/>
+        <image name="bg_slider2_dark.png" width="668" height="11"/>
+        <image name="bg_slider2_light.png" width="677" height="19"/>
+        <image name="bg_transparent.png" width="300" height="6"/>
     </resources>
 </document>

@@ -108,7 +108,7 @@ namespace SCS.iOS
             rootVC.InitTheme();
 
             foreach (var vc in rootVC.subControllers)
-                (vc.TopViewController as BaseViewController).InitTheme();
+                vc.InitTheme();
         }
 
         void AnimationToggleTheme(bool isDark)
