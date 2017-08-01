@@ -16,10 +16,6 @@ namespace SCS.iOS
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView bgEditDiskUsage { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIImageView bgEditEventsDuration { get; set; }
 
         [Outlet]
@@ -52,10 +48,6 @@ namespace SCS.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView imgDiskUsageSliderTrackBG { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIImageView imgEventsDurationSliderTrackBG { get; set; }
 
         [Outlet]
@@ -73,14 +65,6 @@ namespace SCS.iOS
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel lblDiskStatus { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel lblDiskUsage { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel lblDiskUsageValue { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -132,15 +116,15 @@ namespace SCS.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        SCS.iOS.CustomComponents.RangeSliderControl sliderDiskUsage { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         SCS.iOS.CustomComponents.RangeSliderControl sliderEventsDuration { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         SCS.iOS.CustomComponents.RangeSliderControl sliderEventsMax { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.NSLayoutConstraint thumbLeadingSpace { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -180,11 +164,6 @@ namespace SCS.iOS
 
         void ReleaseDesignerOutlets ()
         {
-            if (bgEditDiskUsage != null) {
-                bgEditDiskUsage.Dispose ();
-                bgEditDiskUsage = null;
-            }
-
             if (bgEditEventsDuration != null) {
                 bgEditEventsDuration.Dispose ();
                 bgEditEventsDuration = null;
@@ -225,11 +204,6 @@ namespace SCS.iOS
                 imgDiskStatusSliderTrackBG = null;
             }
 
-            if (imgDiskUsageSliderTrackBG != null) {
-                imgDiskUsageSliderTrackBG.Dispose ();
-                imgDiskUsageSliderTrackBG = null;
-            }
-
             if (imgEventsDurationSliderTrackBG != null) {
                 imgEventsDurationSliderTrackBG.Dispose ();
                 imgEventsDurationSliderTrackBG = null;
@@ -253,16 +227,6 @@ namespace SCS.iOS
             if (lblDiskStatus != null) {
                 lblDiskStatus.Dispose ();
                 lblDiskStatus = null;
-            }
-
-            if (lblDiskUsage != null) {
-                lblDiskUsage.Dispose ();
-                lblDiskUsage = null;
-            }
-
-            if (lblDiskUsageValue != null) {
-                lblDiskUsageValue.Dispose ();
-                lblDiskUsageValue = null;
             }
 
             if (lblEventsDuration != null) {
@@ -325,11 +289,6 @@ namespace SCS.iOS
                 sliderDiskStatus = null;
             }
 
-            if (sliderDiskUsage != null) {
-                sliderDiskUsage.Dispose ();
-                sliderDiskUsage = null;
-            }
-
             if (sliderEventsDuration != null) {
                 sliderEventsDuration.Dispose ();
                 sliderEventsDuration = null;
@@ -338,6 +297,11 @@ namespace SCS.iOS
             if (sliderEventsMax != null) {
                 sliderEventsMax.Dispose ();
                 sliderEventsMax = null;
+            }
+
+            if (thumbLeadingSpace != null) {
+                thumbLeadingSpace.Dispose ();
+                thumbLeadingSpace = null;
             }
 
             if (txtPassword != null) {

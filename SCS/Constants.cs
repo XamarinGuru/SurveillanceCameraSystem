@@ -32,6 +32,7 @@ namespace SCS
 		//camera
 		public const string FN_ICON_SUBTAB_BOTTOM = "bg_tab_bottom";
         public const string FN_BG_ZOOM_CONTROL = "bg_zoom_control";
+        public const string FN_BG_ZOOM_CONTROL_LAND = "bg_zoom_control_land";
         public const string FN_BG_ZOOM_BAR = "bg_zoom_bar";
         public const string FN_ICON_SLIDER_THUMB = "icon_slider_thumb";
         public const string FN_ICON_ZOOM_IN = "icon_zoom_in";

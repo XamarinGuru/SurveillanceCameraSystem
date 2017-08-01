@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#303030">
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1">
+        <RelativeLayout
+            android:background="@drawable/bg_top_dark"
+            android:id="@+id/imgTopBar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:gravity="bottom">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:id="@+id/linearLayout2">
+                <RelativeLayout
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:id="@+id/viewBGTabDashboard">
+                    <ImageView
+                        android:layout_height="match_parent"
+                        android:id="@+id/imgTabIconDashboard"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:padding="8dp"
+                        android:src="@drawable/icon_tab_dashboard_active_dark"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter" />
+                    <ImageView
+                        android:src="@drawable/bg_tab_bottom_dark"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:id="@+id/imgTabBottomDashboard"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitXY" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/viewBGTabCamera">
+                    <ImageView
+                        android:layout_height="match_parent"
+                        android:id="@+id/imgTabIconCamera"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_toLeftOf="@+id/vertical2"
+                        android:src="@drawable/icon_tab_camera_active_dark"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"
+                        android:padding="13dp" />
+                    <ImageView
+                        android:src="@drawable/bg_tab_bottom_dark"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:id="@+id/imgTabBottomCamera"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitXY" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/viewBGTabSettings">
+                    <ImageView
+                        android:layout_height="match_parent"
+                        android:id="@+id/imgTabIconSettings"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:padding="9dp"
+                        android:src="@drawable/icon_tab_settings_active_dark"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true" />
+                    <ImageView
+                        android:src="@drawable/bg_tab_bottom_dark"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:id="@+id/imgTabBottomSettings"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitXY" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/viewBGTabHelp">
+                    <ImageView
+                        android:layout_height="match_parent"
+                        android:id="@+id/imgTabIconHelp"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:padding="10dp"
+                        android:src="@drawable/icon_tab_help_active_dark"
+                        android:scaleType="fitCenter" />
+                    <ImageView
+                        android:src="@drawable/bg_tab_bottom_dark"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:id="@+id/imgTabBottomHelp"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitXY" />
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+        <SCS.CustomComponents.NonSwipeableViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+</RelativeLayout>

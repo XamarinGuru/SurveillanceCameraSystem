@@ -20,26 +20,25 @@ namespace SCS.iOS
             InitSettings();
 		}
 
-		public override void ViewWillLayoutSubviews()
-		{
-			base.ViewWillLayoutSubviews();
+        public override void ViewDidLayoutSubviews()
+        {
+            base.ViewDidLayoutSubviews();
 
-			btnToggleTheme.Selected = AppSettings.CurrentTheme == TYPE_THEME.DARK;
-			AnimationToggleTheme(btnToggleTheme.Selected);
-		}
+            btnToggleTheme.Selected = AppSettings.CurrentTheme == TYPE_THEME.DARK;
+            View.LayoutIfNeeded();
+            thumbLeadingSpace.Constant = btnToggleTheme.Selected ? 2 : viewThemeToggleContent.Frame.Width - imgThemeToggleThumb.Frame.Size.Width;
+        }
 
 		public override void InitTheme()
 		{
             lblEventsMax.TextColor = GetTextColorByTheme();
             lblEventsDuration.TextColor = GetTextColorByTheme();
-            lblDiskUsage.TextColor = GetTextColorByTheme();
             lblDiskStatus.TextColor = GetTextColorByTheme();
             lblTheme.TextColor = GetTextColorByTheme();
             lblServerConnection.TextColor = GetTextColorByTheme();
 
             bgEditEventsMax.Image = GetImageByTheme(FN_BG_TEXT_SLIDER);
             bgEditEventsDuration.Image = GetImageByTheme(FN_BG_TEXT_SLIDER);
-            bgEditDiskUsage.Image = GetImageByTheme(FN_BG_TEXT_SLIDER);
             bgEditServerIP.Image = GetImageByTheme(FN_BG_TEXT_SETTINGS);
 			bgEditPort.Image = GetImageByTheme(FN_BG_TEXT_SETTINGS);
 			bgEditPassword.Image = GetImageByTheme(FN_BG_TEXT_SETTINGS);
@@ -52,7 +51,6 @@ namespace SCS.iOS
 
             lblEventsMaxValue.TextColor = GetToggleTextColorByTheme(true);
             lblEventsDurationValue.TextColor = GetToggleTextColorByTheme(true);
-            lblDiskUsageValue.TextColor = GetToggleTextColorByTheme(true);
             txtServerIP.TextColor = GetToggleTextColorByTheme(true);
             txtPort.TextColor = GetToggleTextColorByTheme(true);
             txtPassword.TextColor = GetToggleTextColorByTheme(true);
@@ -70,11 +68,9 @@ namespace SCS.iOS
 
             SetSliderTheme(sliderEventsMax);
             SetSliderTheme(sliderEventsDuration);
-            SetSliderTheme(sliderDiskUsage);
 
             imgEventsMaxSliderTrackBG.Image = GetImageByTheme(FN_BG_SLIDER1);
             imgEventsDurationSliderTrackBG.Image = GetImageByTheme(FN_BG_SLIDER1);
-            imgDiskUsageSliderTrackBG.Image = GetImageByTheme(FN_BG_SLIDER1);
             imgDiskStatusSliderTrackBG.Image = GetImageByTheme(FN_BG_SLIDER2);
 		}
 
@@ -84,15 +80,25 @@ namespace SCS.iOS
             slider.TrackCrossedOverImage = GetImageByTheme(FN_ICON_SLIDER_THUMB);
             slider.UpperHandleImageNormal = GetImageByTheme(FN_ICON_SLIDER_THUMB);
             slider.UpperHandleImageHighlighted = GetImageByTheme(FN_ICON_SLIDER_THUMB);
+            slider.UpperValueChanged += SliderValueChanged;
 
             slider.LayoutSubviews();
+        }
+
+        private void SliderValueChanged(object sender, EventArgs e)
+        {
+            var slider = sender as RangeSliderControl;
+            var val = ((int)(slider.UpperValue * 100)).ToString();
+            if ((int)slider.Tag == 0)
+                lblEventsMaxValue.Text = val;
+            else
+                lblEventsDurationValue.Text = val;
         }
 
         void InitSettings()
         {
             sliderEventsMax.UpperValue = 0.53f;
             sliderEventsDuration.UpperValue = 0.2f;
-            sliderDiskUsage.UpperValue = 0.5f;
             sliderDiskStatus.UpperValue = 0.3f;
         }
 

@@ -176,5 +176,8 @@
         <image name="bg_slider2_dark.png" width="668" height="11"/>
         <image name="bg_slider2_light.png" width="677" height="19"/>
         <image name="bg_transparent.png" width="300" height="6"/>
+        <image name="bg_btn_highlight.png" width="256" height="256"/>
+        <image name="bg_zoom_control_land_dark.png" width="632" height="632"/>
+        <image name="bg_zoom_control_land_light.png" width="632" height="632"/>
     </resources>
 </document>

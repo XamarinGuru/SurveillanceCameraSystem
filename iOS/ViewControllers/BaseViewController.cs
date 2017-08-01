@@ -8,6 +8,7 @@ namespace SCS.iOS
     public partial class BaseViewController : UIViewController
     {
         public virtual void InitTheme(){}
+
         public TabBarController rootVC;
 
 		public BaseViewController() : base()

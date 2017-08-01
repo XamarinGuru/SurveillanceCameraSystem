@@ -11,6 +11,9 @@ namespace SCS.iOS
 		public List<BaseViewController> subControllers = new List<BaseViewController>();
 		int nCurrentIndex = -1;
 
+        public Action<CGRect, CGRect> DeviceOrientationChangedHandler;
+        CGRect _contentRectPort, _contentRectLand;
+
 		public TabBarController() : base()
         {
 		}
@@ -21,6 +24,9 @@ namespace SCS.iOS
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
+
+            _contentRectPort = new CGRect(CGPoint.Empty, viewContent.Frame.Size);
+            _contentRectLand = new CGRect(CGPoint.Empty, new CGSize(View.Frame.Height, View.Frame.Width));
 
             AddSubController("DashboardViewController");
             AddSubController("CameraViewController");
@@ -33,21 +39,11 @@ namespace SCS.iOS
 
 		public override bool ShouldAutorotate()
 		{
-            foreach (var vc in subControllers)
-                vc.View.Frame = View.Frame;
-            
+            if (DeviceOrientationChangedHandler != null)
+                DeviceOrientationChangedHandler(_contentRectPort, _contentRectLand);
+
             return nCurrentIndex == 1;
 		}
-
-		//public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations()
-		//{
-		//	return UIInterfaceOrientationMask.Portrait;
-		//}
-
-		//public override UIInterfaceOrientation PreferredInterfaceOrientationForPresentation()
-		//{
-		//	return UIInterfaceOrientation.Portrait;
-		//}
 
 		public override void InitTheme()
 		{
@@ -61,7 +57,7 @@ namespace SCS.iOS
 		{
 			var tabVC = (BaseViewController)this.Storyboard.InstantiateViewController(vcIdentifier);
             tabVC.rootVC = this;
-			tabVC.View.Frame = new CGRect(CGPoint.Empty, viewContent.Frame.Size);
+            tabVC.View.Frame = _contentRectPort;
 			tabVC.View.Hidden = true;
 
             viewContent.AddSubview(tabVC.View);

@@ -1,85 +1,76 @@
-﻿using Android.App;
+﻿
+using System;
+using Android.App;
 using Android.Content;
-using Android.OS;
-using Android.Views;
-using Android.Widget;
 using Android.Content.PM;
-using Android.Support.V4.Content;
-using Android.Graphics;
+using Android.OS;
+using Android.Widget;
 
-namespace SCS.Droid
+namespace SCS.Activities
 {
-    [Activity(Label = "@string/login",
-        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
-        ScreenOrientation = ScreenOrientation.Portrait)]
-    public class LoginActivity : BaseActivity
-    {
-        /// <summary>
-        /// Specify the layout to inflace
-        /// </summary>
-        protected override int LayoutResource => Resource.Layout.activity_login;
+	[Activity(Label = "LoginActivity", ScreenOrientation = ScreenOrientation.Portrait)]
+	public class LoginActivity : BaseActivity
+	{
+		protected override void OnCreate(Bundle savedInstanceState)
+		{
+			base.OnCreate(savedInstanceState);
+			SetContentView(Resource.Layout.LoginActivity);
 
-        Button signInButton, notNowButton;
-        LinearLayout signingInPanel;
-        ProgressBar progressBar;
-        LoginViewModel viewModel;
-        protected override void OnCreate(Bundle savedInstanceState)
+            InitUISettings();
+			InitTheme();
+		}
+
+		void InitUISettings()
+		{
+            FindViewById<ImageButton>(Resource.Id.ActionLogin).Click += ActionLogin;
+			//FindViewById<ImageView>(Resource.Id.ActionBack).Click += ActionBack;
+			//FindViewById<Button>(Resource.Id.ActionForgotPassword).Click += ActionForgotPassword;
+
+			//txtEmail = FindViewById<EditText>(Resource.Id.txtEmail);
+			//txtPassword = FindViewById<EditText>(Resource.Id.txtPassword);
+
+			//invalidEmail = FindViewById<ImageView>(Resource.Id.invalidEmail);
+			//invalidPassword = FindViewById<ImageView>(Resource.Id.invalidPassword);
+			//errorEmail = FindViewById<LinearLayout>(Resource.Id.errorEmail);
+			//errorPassword = FindViewById<LinearLayout>(Resource.Id.errorPassword);
+
+			//invalidEmail.Visibility = ViewStates.Invisible;
+			//invalidPassword.Visibility = ViewStates.Invisible;
+			//errorEmail.Visibility = ViewStates.Invisible;
+			//errorPassword.Visibility = ViewStates.Invisible;
+
+			//FindViewById<Button>(Resource.Id.ActionLogin).SetBackgroundColor(GROUP_COLOR);
+		}
+
+		public override void InitTheme()
+		{
+			//imgBackground.Image = GetImageByTheme(FN_BACKGROUND);
+			//imgLogo.Image = GetImageByTheme(FN_LOGO);
+			//bgEditServerIp.Image = GetImageByTheme(FN_BG_EDIT_SERVER_IP);
+			//bgEditPort.Image = GetImageByTheme(FN_BG_EDIT_PORT);
+			//bgEditPSW.Image = GetImageByTheme(FN_BG_EDIT_PSW);
+			//btnLogin.SetBackgroundImage(GetImageByTheme(FN_BG_BTN_LOGIN), UIControlState.Normal);
+			//btnScanQR.SetBackgroundImage(GetImageByTheme(FN_BG_BTN_SCAN_QR), UIControlState.Normal);
+
+			//lblServerIP.TextColor = GetTextColorByTheme();
+			//lblPort.TextColor = GetTextColorByTheme();
+			//lblPassword.TextColor = GetTextColorByTheme();
+			//txtServerIP.TextColor = GetTextColorByTheme();
+			//txtPort.TextColor = GetTextColorByTheme();
+			//txtPassword.TextColor = GetTextColorByTheme();
+
+			//lblOR.TextColor = GetTextColorByTheme(false);
+			//lblQRDescription.TextColor = GetTextColorByTheme(false);
+
+			//viewLSeperator.BackgroundColor = GetTextColorByTheme(false);
+			//viewRSeperator.BackgroundColor = GetTextColorByTheme(false);
+		}
+
+        void ActionLogin(object sender, EventArgs e)
         {
-            //Layout gets inflated here
-            base.OnCreate(savedInstanceState);
-
-            viewModel = new LoginViewModel();
-
-            signInButton = FindViewById<Button>(Resource.Id.button_signin);
-            notNowButton = FindViewById<Button>(Resource.Id.button_not_now);
-
-            signInButton.Text = "Sign In";
-
-            progressBar = FindViewById<ProgressBar>(Resource.Id.progressbar_signin);
-            signingInPanel = FindViewById<LinearLayout>(Resource.Id.container_signin);
-
-            progressBar.Indeterminate = false;
-            signingInPanel.Visibility = ViewStates.Invisible;
-
-            //Turn off back arrows
-            SupportActionBar.SetDisplayHomeAsUpEnabled(false);
-            SupportActionBar.SetHomeButtonEnabled(false);
-        }
-
-        protected override void OnStart()
-        {
-            base.OnStart();
-            signInButton.Click += SignInButton_Click;
-            notNowButton.Click += NotNowButton_Click;
-        }
-
-        protected override void OnStop()
-        {
-            base.OnStop();
-            signInButton.Click -= SignInButton_Click;
-            notNowButton.Click -= NotNowButton_Click;
-        }
-
-        void NotNowButton_Click(object sender, System.EventArgs e)
-        {
-            var intent = new Intent(this, typeof(MainActivity));
-            intent.AddFlags(ActivityFlags.ClearTop);
-            StartActivity(intent);
+            Intent nextIntent = new Intent(this, typeof(TabBarActivity));
+            StartActivityForResult(nextIntent, 0);
             Finish();
         }
-
-        async void SignInButton_Click(object sender, System.EventArgs e)
-        {
-            await viewModel.SignIn();
-
-            if (Settings.IsLoggedIn)
-            {
-                var intent = new Intent(this, typeof(MainActivity));
-                intent.AddFlags(ActivityFlags.ClearTop);
-                StartActivity(intent);
-                Finish();
-            }
-        }
-    }
+	}
 }
-

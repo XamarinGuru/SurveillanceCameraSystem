@@ -256,6 +256,9 @@
     <BundleResource Include="Resources\bg_slider2_dark.png" />
     <BundleResource Include="Resources\bg_slider2_light.png" />
     <BundleResource Include="Resources\bg_transparent.png" />
+    <BundleResource Include="Resources\bg_btn_highlight.png" />
+    <BundleResource Include="Resources\bg_zoom_control_land_dark.png" />
+    <BundleResource Include="Resources\bg_zoom_control_land_light.png" />
   </ItemGroup>
   <Import Project="..\SCS\SCS.projitems" Label="Shared" Condition="Exists('..\SCS\SCS.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

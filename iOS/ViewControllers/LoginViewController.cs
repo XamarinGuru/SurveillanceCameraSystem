@@ -13,15 +13,13 @@ namespace SCS.iOS
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
-
-            //InitTheme();
-		}
-
-        public override void ViewWillAppear(bool animated)
-        {
-            base.ViewWillAppear(animated);
             InitTheme();
         }
+
+		public override bool ShouldAutorotate()
+		{
+            return false;
+		}
 
         public override void InitTheme()
         {

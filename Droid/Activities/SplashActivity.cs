@@ -1,27 +1,37 @@
 ﻿using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Support.V7.App;
+using System.Threading.Tasks;
+using Android.Content.PM;
 
-namespace SCS.Droid
+namespace SCS.Activities
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/SplashTheme", MainLauncher = true)]
-    public class SplashActivity : AppCompatActivity
+    [Activity(Theme = "@style/MyTheme.Splash", MainLauncher = true, NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
+
+    public class SplashActivity : BaseActivity
     {
-        protected override void OnCreate(Bundle savedInstanceState)
+        public override void OnCreate(Bundle savedInstanceState, PersistableBundle persistentState)
         {
-            base.OnCreate(savedInstanceState);
+            base.OnCreate(savedInstanceState, persistentState);
+        }
 
-            Intent newIntent;
-            if (Settings.IsLoggedIn)
-                newIntent = new Intent(this, typeof(MainActivity));
-            else
-                newIntent = new Intent(this, typeof(LoginActivity));
+        protected override void OnResume()
+        {
+            base.OnResume();
 
-            newIntent.AddFlags(ActivityFlags.ClearTop);
-            newIntent.AddFlags(ActivityFlags.SingleTop);
-            StartActivity(newIntent);
-            Finish();
+            Task startupWork = new Task(() =>
+            {
+                Task.Delay(500);  
+            });
+
+            startupWork.ContinueWith(t =>
+            {
+                Intent nextIntent = new Intent(this, typeof(LoginActivity));
+				StartActivityForResult(nextIntent, 0);
+            }, TaskScheduler.FromCurrentSynchronizationContext());
+
+            startupWork.Start();
         }
     }
 }
+
