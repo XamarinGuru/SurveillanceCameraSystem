@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CoreGraphics;
+using Foundation;
 using UIKit;
 using static SCS.Constants;
 
@@ -25,7 +26,7 @@ namespace SCS.iOS
 		{
 			base.ViewDidLoad();
 
-            _contentRectPort = new CGRect(CGPoint.Empty, viewContent.Frame.Size);
+			_contentRectPort = new CGRect(CGPoint.Empty, new CGSize(View.Frame.Width, View.Frame.Height - 90));
             _contentRectLand = new CGRect(CGPoint.Empty, new CGSize(View.Frame.Height, View.Frame.Width));
 
             AddSubController("DashboardViewController");
@@ -37,13 +38,14 @@ namespace SCS.iOS
 			SetCurrentPage(0);
 		}
 
-		public override bool ShouldAutorotate()
-		{
-            if (DeviceOrientationChangedHandler != null)
-                DeviceOrientationChangedHandler(_contentRectPort, _contentRectLand);
-
-            return nCurrentIndex == 1;
-		}
+        public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations()
+        {
+            DeviceOrientationChangedHandler?.Invoke(_contentRectPort, _contentRectLand);
+            if (nCurrentIndex == 1)
+                if (UIDevice.CurrentDevice.Orientation == UIDeviceOrientation.LandscapeLeft || UIDevice.CurrentDevice.Orientation == UIDeviceOrientation.LandscapeRight)
+                    return UIInterfaceOrientationMask.Landscape;
+            return UIInterfaceOrientationMask.Portrait;
+        }
 
 		public override void InitTheme()
 		{
@@ -57,7 +59,7 @@ namespace SCS.iOS
 		{
 			var tabVC = (BaseViewController)this.Storyboard.InstantiateViewController(vcIdentifier);
             tabVC.rootVC = this;
-            tabVC.View.Frame = _contentRectPort;
+            tabVC.View.Frame = new CGRect(CGPoint.Empty, viewContent.Frame.Size);
 			tabVC.View.Hidden = true;
 
             viewContent.AddSubview(tabVC.View);
@@ -73,12 +75,17 @@ namespace SCS.iOS
 		{
 			if (nCurrentIndex == pIndex) return;
 
-			if (nCurrentIndex != -1)
-				subControllers[nCurrentIndex].View.Hidden = true;
+            if (nCurrentIndex != -1)
+            {
+                subControllers[nCurrentIndex].View.Hidden = true;
+                subControllers[nCurrentIndex].View.EndEditing(true);
+            }
 
-			nCurrentIndex = pIndex;
+            nCurrentIndex = pIndex;
 
-			subControllers[nCurrentIndex].View.Hidden = false;
+            DeviceOrientationChangedHandler1();
+
+            subControllers[nCurrentIndex].View.Hidden = false;
 
 			TabBarAnimation();
 		}

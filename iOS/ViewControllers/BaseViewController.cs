@@ -1,4 +1,5 @@
 ﻿using System;
+using Foundation;
 using SCS.iOS.Helpers;
 using UIKit;
 using static SCS.Constants;
@@ -35,6 +36,27 @@ namespace SCS.iOS
 				alertView.Show();
 			});
 		}
+
+        public void DeviceOrientationChangedHandler1()
+        {
+            UIInterfaceOrientation interfaceOrientation = UIInterfaceOrientation.Portrait;
+            switch(UIDevice.CurrentDevice.Orientation)
+            {
+                case UIDeviceOrientation.Portrait:
+                    interfaceOrientation = UIInterfaceOrientation.Portrait;
+                    break;
+                case UIDeviceOrientation.LandscapeLeft:
+                    interfaceOrientation = UIInterfaceOrientation.LandscapeLeft;
+					break;
+                case UIDeviceOrientation.LandscapeRight:
+                    interfaceOrientation = UIInterfaceOrientation.LandscapeRight;
+					break;
+            }
+			NSNumber orientationValue = new NSNumber((int)interfaceOrientation);
+			NSString orientationKey = new NSString("orientation");
+
+			UIDevice.CurrentDevice.SetValueForKey(orientationValue, orientationKey);
+        }
 
         #region image
         public string GetFileNameByTheme(string name)

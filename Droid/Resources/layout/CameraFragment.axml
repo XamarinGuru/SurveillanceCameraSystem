@@ -127,16 +127,14 @@
                             android:id="@+id/imgZoomControl"
                             android:scaleType="fitCenter"
                             android:adjustViewBounds="true" />
-                        <ImageButton
-                            android:src="@drawable/icon_camera_back_dark"
+                        <CheckBox
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:id="@+id/btnCamera"
-                            android:layout_alignParentRight="true"
+                            android:button="@null"
                             android:layout_alignBottom="@id/imgZoomControl"
-                            android:scaleType="centerCrop"
-                            android:adjustViewBounds="true"
-                            android:background="@null" />
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/item_btncamerarecord" />
                         <LinearLayout
                             android:orientation="horizontal"
                             android:minWidth="25px"
@@ -192,8 +190,16 @@
                                             android:minHeight="25px"
                                             android:layout_width="match_parent"
                                             android:layout_height="0dp"
-                                            android:id="@+id/ActionCameraDirection7"
-                                            android:layout_weight="2" />
+                                            android:layout_weight="2">
+                                            <ImageButton
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:id="@+id/ActionCameraDirection7"
+                                                android:background="@drawable/item_btnhighlight"
+                                                android:scaleType="centerInside"
+                                                android:adjustViewBounds="true"
+                                                android:tag="7" />
+                                        </LinearLayout>
                                     </LinearLayout>
                                 </LinearLayout>
                                 <LinearLayout
@@ -202,8 +208,16 @@
                                     android:minHeight="25px"
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
-                                    android:id="@+id/ActionCameraDirection6"
-                                    android:layout_weight="0.7" />
+                                    android:layout_weight="0.7">
+                                    <ImageButton
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:id="@+id/ActionCameraDirection6"
+                                        android:background="@drawable/item_btnhighlight"
+                                        android:scaleType="centerInside"
+                                        android:adjustViewBounds="true"
+                                        android:tag="6" />
+                                </LinearLayout>
                                 <LinearLayout
                                     android:orientation="horizontal"
                                     android:minWidth="25px"
@@ -234,8 +248,16 @@
                                             android:minHeight="25px"
                                             android:layout_width="match_parent"
                                             android:layout_height="0dp"
-                                            android:id="@+id/ActionCameraDirection5"
-                                            android:layout_weight="2" />
+                                            android:layout_weight="2">
+                                            <ImageButton
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:id="@+id/ActionCameraDirection5"
+                                                android:background="@drawable/item_btnhighlight"
+                                                android:scaleType="centerInside"
+                                                android:adjustViewBounds="true"
+                                                android:tag="5" />
+                                        </LinearLayout>
                                         <LinearLayout
                                             android:orientation="horizontal"
                                             android:minWidth="25px"
@@ -261,8 +283,17 @@
                                     android:minHeight="25px"
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
-                                    android:id="@+id/ActionCameraDirection0"
-                                    android:layout_weight="1" />
+                                    android:layout_weight="1">
+                                    <ImageButton
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:id="@+id/ActionCameraDirection0"
+                                        android:background="@drawable/item_btnhighlight"
+                                        android:scaleType="centerInside"
+                                        android:adjustViewBounds="true"
+                                        android:cropToPadding="true"
+                                        android:tag="0" />
+                                </LinearLayout>
                                 <LinearLayout
                                     android:orientation="horizontal"
                                     android:minWidth="25px"
@@ -270,15 +301,31 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
                                     android:id="@+id/viewCameraExpand"
-                                    android:layout_weight="0.7" />
+                                    android:layout_weight="0.7">
+                                    <ImageButton
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:id="@+id/ActionCameraExpand"
+                                        android:background="@drawable/item_btnhighlight"
+                                        android:scaleType="centerInside"
+                                        android:adjustViewBounds="true" />
+                                </LinearLayout>
                                 <LinearLayout
                                     android:orientation="horizontal"
                                     android:minWidth="25px"
                                     android:minHeight="25px"
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
-                                    android:id="@+id/ActionCameraDirection4"
-                                    android:layout_weight="1" />
+                                    android:layout_weight="1">
+                                    <ImageButton
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:id="@+id/ActionCameraDirection4"
+                                        android:background="@drawable/item_btnhighlight"
+                                        android:scaleType="centerInside"
+                                        android:adjustViewBounds="true"
+                                        android:tag="4" />
+                                </LinearLayout>
                             </LinearLayout>
                             <LinearLayout
                                 android:orientation="vertical"
@@ -318,8 +365,16 @@
                                             android:minHeight="25px"
                                             android:layout_width="match_parent"
                                             android:layout_height="0dp"
-                                            android:id="@+id/ActionCameraDirection1"
-                                            android:layout_weight="2" />
+                                            android:layout_weight="2">
+                                            <ImageButton
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:id="@+id/ActionCameraDirection1"
+                                                android:background="@drawable/item_btnhighlight"
+                                                android:scaleType="centerInside"
+                                                android:adjustViewBounds="true"
+                                                android:tag="1" />
+                                        </LinearLayout>
                                     </LinearLayout>
                                     <LinearLayout
                                         android:orientation="horizontal"
@@ -336,8 +391,16 @@
                                     android:minHeight="25px"
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
-                                    android:id="@+id/ActionCameraDirection2"
-                                    android:layout_weight="0.7" />
+                                    android:layout_weight="0.7">
+                                    <ImageButton
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:id="@+id/ActionCameraDirection2"
+                                        android:background="@drawable/item_btnhighlight"
+                                        android:scaleType="centerInside"
+                                        android:adjustViewBounds="true"
+                                        android:tag="2" />
+                                </LinearLayout>
                                 <LinearLayout
                                     android:orientation="horizontal"
                                     android:minWidth="25px"
@@ -360,8 +423,16 @@
                                             android:minHeight="25px"
                                             android:layout_width="match_parent"
                                             android:layout_height="0dp"
-                                            android:id="@+id/ActionCameraDirection3"
-                                            android:layout_weight="2" />
+                                            android:layout_weight="2">
+                                            <ImageButton
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:id="@+id/ActionCameraDirection3"
+                                                android:background="@drawable/item_btnhighlight"
+                                                android:scaleType="centerInside"
+                                                android:adjustViewBounds="true"
+                                                android:tag="3" />
+                                        </LinearLayout>
                                         <LinearLayout
                                             android:orientation="horizontal"
                                             android:minWidth="25px"
@@ -511,13 +582,12 @@
                         android:adjustViewBounds="true"
                         android:layout_alignParentBottom="true" />
                 </RelativeLayout>
-                <RelativeLayout
+                <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
                     android:minWidth="25px"
                     android:minHeight="25px"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/viewMotionActive"
-                    xmlns:tools="http://schemas.android.com/tools"
                     tools:visibility="visible">
                     <ImageView
                         android:src="@drawable/icon_motiondetect_actie_dark"

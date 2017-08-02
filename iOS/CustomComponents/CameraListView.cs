@@ -39,7 +39,7 @@ namespace SCS.iOS
 					lblAction.Text = "MOTION";
                     break;
                 case TYPE_ACTION.CAMERA:
-					imgAction.Image = UIImage.FromFile("icon_cameradisconnect_inactie_dark.png"); ;
+					imgAction.Image = UIImage.FromFile("icon_cameradisconnect_inactive_dark.png"); ;
 					lblAction.Text = "CAMERA";
 					break;
                 case TYPE_ACTION.NOTIFICATION:

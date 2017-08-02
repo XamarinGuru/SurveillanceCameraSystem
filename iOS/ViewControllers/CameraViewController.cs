@@ -27,6 +27,12 @@ namespace SCS.iOS
             SetCurrentPage(0);
         }
 
+        public override void ViewDidLayoutSubviews()
+        {
+            base.ViewDidLayoutSubviews();
+            viewBackground.LayoutIfNeeded();
+        }
+
 		public override void InitTheme()
         {
             imgZoomControl.Image = GetImageByTheme(FN_BG_ZOOM_CONTROL);
@@ -93,6 +99,7 @@ namespace SCS.iOS
 
 		System.Timers.Timer _timer = new System.Timers.Timer();
 		int duration = 0;
+        //float posX = 0;
 
 		void StartTimer()
 		{
@@ -100,6 +107,8 @@ namespace SCS.iOS
 			_timer.Elapsed -= OnTimedEvent;
 			_timer.Elapsed += OnTimedEvent;
 			_timer.Enabled = true;
+
+            //posX = 
 		}
 		private void OnTimedEvent(object sender, ElapsedEventArgs e)
 		{
@@ -118,13 +127,13 @@ namespace SCS.iOS
 
 			if ((int)sender.Tag == 0)
 			{
-				rectBtn.X -= step * duration;
+                rectBtn.X = rectBar.Width / 2 - step * duration;
 				if (rectBtn.X < -rectBtn.Width / 2)
 					rectBtn.X = -rectBtn.Width / 2;
 			}
 			else
 			{
-				rectBtn.X += step * duration;
+				rectBtn.X = rectBar.Width / 2 + step * duration;
 				if (rectBtn.X > rectBar.Width - rectBtn.Width / 2)
 					rectBtn.X = rectBar.Width - rectBtn.Width / 2;
 			}

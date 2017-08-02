@@ -46,6 +46,7 @@ namespace SCS.iOS
             imgThemeToggleBackground.Image = GetImageByTheme(FN_BG_TOGGLE);
             imgThemeToggleThumb.Image = GetImageByTheme(FN_BG_TOGGLE_THUMB);
 
+
             lblThemeDark.TextColor = GetToggleTextColorByTheme(true);
             lblThemeLight.TextColor = GetToggleTextColorByTheme(false);
 
@@ -72,6 +73,7 @@ namespace SCS.iOS
             imgEventsMaxSliderTrackBG.Image = GetImageByTheme(FN_BG_SLIDER1);
             imgEventsDurationSliderTrackBG.Image = GetImageByTheme(FN_BG_SLIDER1);
             imgDiskStatusSliderTrackBG.Image = GetImageByTheme(FN_BG_SLIDER2);
+            sliderDiskStatus.TrackImage = GetImageByTheme(FN_BG_SLIDER_TRACK1);
 		}
 
         private void SetSliderTheme(RangeSliderControl slider)

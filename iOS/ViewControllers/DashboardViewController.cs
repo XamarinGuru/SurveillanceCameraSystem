@@ -21,6 +21,12 @@ namespace SCS.iOS
             InitCameraSystem();
         }
 
+		public override void ViewDidLayoutSubviews()
+		{
+			base.ViewDidLayoutSubviews();
+			viewBackground.LayoutIfNeeded();
+		}
+
         public override void InitTheme()
         {
             btnCameraFront.SetBackgroundImage(GetImageByTheme(FN_ICON_CAMERA_BACK), UIControlState.Normal);

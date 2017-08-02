@@ -17,12 +17,13 @@
             android:minHeight="25px"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/scrollView1"
+            android:id="@+id/scrollView"
             android:scrollIndicators="none">
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:descendantFocusability="blocksDescendants"
                 android:id="@+id/linearLayout2">
                 <RelativeLayout
                     android:minWidth="25px"
@@ -48,17 +49,15 @@
                         android:textSize="13dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginLeft="20dp" />
-                    <ImageButton
-                        android:src="@drawable/icon_camera_front_dark"
+                    <CheckBox
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:id="@+id/imageButton1"
+                        android:id="@+id/checkBox1"
+                        android:button="@null"
+                        android:background="@drawable/item_btncamerarecord"
                         android:layout_alignParentRight="true"
                         android:layout_marginTop="15dp"
-                        android:layout_marginRight="15dp"
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitCenter"
-                        android:background="@null" />
+                        android:layout_marginRight="15dp" />
                 </RelativeLayout>
                 <RelativeLayout
                     android:minWidth="25px"
@@ -85,17 +84,15 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginLeft="20dp"
                         android:text="BACKDOOR" />
-                    <ImageButton
-                        android:src="@drawable/icon_camera_back_dark"
+                    <CheckBox
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:id="@+id/imageButton1"
+                        android:id="@+id/checkBox1"
+                        android:button="@null"
+                        android:background="@drawable/item_btncamerarecord"
                         android:layout_alignParentRight="true"
                         android:layout_marginTop="15dp"
-                        android:layout_marginRight="15dp"
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitCenter"
-                        android:background="@null" />
+                        android:layout_marginRight="15dp" />
                 </RelativeLayout>
                 <LinearLayout
                     android:orientation="horizontal"
@@ -139,20 +136,25 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView3"
+                            android:id="@+id/lblSymbolNumber"
                             android:text="13"
                             android:gravity="center"
                             android:layout_centerInParent="true"
                             android:textSize="11dp" />
                     </RelativeLayout>
                 </LinearLayout>
-                <LinearLayout
-                    android:orientation="horizontal"
+                <GridView xmlns:p3="http://schemas.android.com/tools"
                     android:minWidth="25px"
                     android:minHeight="25px"
+                    android:id="@+id/listViewCamera"
+                    p3:listitem="@layout/item_cameralistview"
+                    android:horizontalSpacing="1dp"
+                    android:verticalSpacing="1dp"
+                    android:numColumns="3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/linearLayout5" />
+                    android:columnWidth="50dp"
+                    android:transcriptMode="normal" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

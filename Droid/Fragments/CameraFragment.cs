@@ -26,8 +26,9 @@ namespace SCS.Fragments
         ImageView imgTabBottomKitchen, imgTabBottomBackdoor,
             imgZoomControl, imgZoomBar, imgMotionInactive, imgCameraInactive, imgTripwireInactive, imgNotificationInactive, imgSounderInactive;
         TextView lblTabIconKitchen, lblTabIconBackdoor;
-        ImageButton btnCamera, btnSliderThumb, btnZoomIn, btnZoomOut;
-        LinearLayout viewCameraExpand, viewBottomBar;
+        CheckBox btnCamera;
+        ImageButton btnSliderThumb, btnZoomIn, btnZoomOut;
+        LinearLayout viewBottomBar;
         RelativeLayout viewMotionActive, viewCameraActive, viewTripwireActive, viewNotificationActive, viewSounderActive,
             viewBottomBarMotion, viewBottomBarCamera, viewBottomBarNotification, viewBottomBarTripwire, viewBottomBarSounder;
 
@@ -57,7 +58,7 @@ namespace SCS.Fragments
             lblTabIconBackdoor = mView.FindViewById<TextView>(Resource.Id.lblTabIconBackdoor);
 
             imgZoomControl = mView.FindViewById<ImageView>(Resource.Id.imgZoomControl);
-            btnCamera = mView.FindViewById<ImageButton>(Resource.Id.btnCamera);
+            btnCamera = mView.FindViewById<CheckBox>(Resource.Id.btnCamera);
             imgZoomBar = mView.FindViewById<ImageView>(Resource.Id.imgZoomBar);
             btnSliderThumb = mView.FindViewById<ImageButton>(Resource.Id.btnSliderThumb);
             btnZoomIn = mView.FindViewById<ImageButton>(Resource.Id.btnZoomIn);
@@ -69,7 +70,6 @@ namespace SCS.Fragments
             imgNotificationInactive = mView.FindViewById<ImageView>(Resource.Id.imgNotificationInactive);
             imgSounderInactive = mView.FindViewById<ImageView>(Resource.Id.imgSounderInactive);
 
-            viewCameraExpand = mView.FindViewById<LinearLayout>(Resource.Id.viewCameraExpand);
             viewBottomBar = mView.FindViewById<LinearLayout>(Resource.Id.viewBottomBar);
 
             viewMotionActive = mView.FindViewById<RelativeLayout>(Resource.Id.viewMotionActive);
@@ -87,7 +87,16 @@ namespace SCS.Fragments
             mView.FindViewById(Resource.Id.ActionTabKitchen).Click += ActionTab;
             mView.FindViewById(Resource.Id.ActionTabBackdoor).Click += ActionTab;
 
-            viewCameraExpand.Click += ActionCameraExpand;
+            mView.FindViewById(Resource.Id.ActionCameraExpand).Click += ActionCameraExpand;
+            mView.FindViewById(Resource.Id.ActionCameraDirection0).Click += ActionCameraDirection;
+            mView.FindViewById(Resource.Id.ActionCameraDirection1).Click += ActionCameraDirection;
+            mView.FindViewById(Resource.Id.ActionCameraDirection2).Click += ActionCameraDirection;
+            mView.FindViewById(Resource.Id.ActionCameraDirection3).Click += ActionCameraDirection;
+            mView.FindViewById(Resource.Id.ActionCameraDirection4).Click += ActionCameraDirection;
+            mView.FindViewById(Resource.Id.ActionCameraDirection5).Click += ActionCameraDirection;
+            mView.FindViewById(Resource.Id.ActionCameraDirection6).Click += ActionCameraDirection;
+            mView.FindViewById(Resource.Id.ActionCameraDirection7).Click += ActionCameraDirection;
+
 			viewBottomBarMotion.Click += ActionAction;
 			viewBottomBarCamera.Click += ActionAction;
 			viewBottomBarNotification.Click += ActionAction;
@@ -95,10 +104,12 @@ namespace SCS.Fragments
 			viewBottomBarSounder.Click += ActionAction;
         }
 
+
+
         public void InitTheme()
 		{
             imgZoomControl.SetBackgroundResource(rootActivity.GetImageByTheme(FN_BG_ZOOM_CONTROL));
-            btnCamera.SetBackgroundResource(rootActivity.GetImageByTheme(FN_ICON_CAMERA_BACK));
+            //btnCamera.SetBackgroundResource(rootActivity.GetImageByTheme(FN_ICON_CAMERA_BACK));
             imgZoomBar.SetBackgroundResource(rootActivity.GetImageByTheme(FN_BG_ZOOM_BAR));
 			btnSliderThumb.SetBackgroundResource(rootActivity.GetImageByTheme(FN_ICON_SLIDER_THUMB));
 			btnZoomIn.SetBackgroundResource(rootActivity.GetImageByTheme(FN_ICON_ZOOM_IN));
@@ -161,7 +172,12 @@ namespace SCS.Fragments
 
 		private void ActionCameraExpand(object sender, EventArgs e)
 		{
-			throw new NotImplementedException();
+			//throw new NotImplementedException();
+		}
+
+		private void ActionCameraDirection(object sender, EventArgs e)
+		{
+            //var direction = int.Parse((sender as ImageButton).Tag.ToString());
 		}
 
 		private void ActionAction(object sender, EventArgs e)

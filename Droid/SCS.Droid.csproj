@@ -195,8 +195,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Fragments\DashboardFragment.cs" />
-    <Compile Include="Fragments\FragmentProfile.cs" />
-    <Compile Include="Fragments\FragmentEvents.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Activities\SplashActivity.cs" />
     <Compile Include="Activities\BaseActivity.cs" />
@@ -207,6 +205,8 @@
     <Compile Include="CustomComponents\TabViewAdapter.cs" />
     <Compile Include="Helpers\AppSettings.cs" />
     <Compile Include="Fragments\CameraFragment.cs" />
+    <Compile Include="CustomComponents\CamerViewListAdapter.cs" />
+    <Compile Include="Fragments\SettingsFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -223,7 +223,7 @@
     <AndroidResource Include="Resources\Anim\toRight.axml" />
     <AndroidResource Include="Resources\Anim\fromRight.axml" />
     <AndroidResource Include="Resources\Anim\toLeft.axml" />
-    <AndroidResource Include="Resources\layout\item_Comment.axml" />
+    <AndroidResource Include="Resources\layout\item_cameraListView.axml" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="packages.config" />
     <AndroidResource Include="Resources\drawable\bg_action_active_dark.png" />
@@ -321,6 +321,21 @@
     <AndroidResource Include="Resources\drawable\icon_zoom_out_light.png" />
     <AndroidResource Include="Resources\layout\DashboardFragment.axml" />
     <AndroidResource Include="Resources\layout\CameraFragment.axml" />
+    <AndroidResource Include="Resources\drawable\item_btnCameraRecord.axml" />
+    <AndroidResource Include="Resources\drawable\bg_btn_highlight.png" />
+    <AndroidResource Include="Resources\drawable\bg_zoom_control_land_dark.png" />
+    <AndroidResource Include="Resources\drawable\bg_zoom_control_land_light.png" />
+    <AndroidResource Include="Resources\drawable\item_btnHighlight.axml" />
+    <AndroidResource Include="Resources\layout\SettingsFragment.axml" />
+    <AndroidResource Include="Resources\drawable\item_seekBar.axml" />
+    <AndroidResource Include="Resources\drawable\item_seekBarThumb.axml" />
+    <AndroidResource Include="Resources\drawable\item_seekBarProgress.axml" />
+    <AndroidResource Include="Resources\drawable\item_seekBarBorderShadow.axml" />
+    <AndroidResource Include="Resources\drawable\item_seekBarProgress1.axml" />
+    <AndroidResource Include="Resources\drawable\item_seekBar1.axml" />
+    <AndroidResource Include="Resources\drawable\item_toggleTheme.axml" />
+    <AndroidResource Include="Resources\drawable\bg_toggle_dark_theme_dark.png" />
+    <AndroidResource Include="Resources\drawable\bg_toggle_light_theme_dark.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />

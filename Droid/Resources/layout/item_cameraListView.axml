@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="2dp">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:id="@+id/ActionEventDetail">
+        <RelativeLayout
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/relativeLayout1">
+            <ImageView
+                android:src="@drawable/bg_camera_front"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imgBackground"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:cropToPadding="true" />
+            <ImageView
+                android:src="@drawable/icon_tripwire_inactie_dark"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:id="@+id/imgAction"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp" />
+            <TextView
+                android:text="TRIPWIRE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/lblAction"
+                android:textSize="8dp"
+                android:textColor="#ffffffff"
+                android:textStyle="bold"
+                android:layout_alignTop="@id/imgAction"
+                android:layout_toEndOf="@id/imgAction"
+                android:layout_marginLeft="5dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/lblTime"
+                android:textSize="7dp"
+                android:textColor="#ffffffff"
+                android:textStyle="bold"
+                android:layout_alignLeft="@id/lblAction"
+                android:layout_below="@id/lblAction"
+                android:text="33 mins ago" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>
