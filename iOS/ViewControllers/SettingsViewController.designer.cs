@@ -16,6 +16,10 @@ namespace SCS.iOS
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView bgEditDiskUsage { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIImageView bgEditEventsDuration { get; set; }
 
         [Outlet]
@@ -44,6 +48,10 @@ namespace SCS.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIView contentView { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIImageView imgDiskStatusSliderTrackBG { get; set; }
 
         [Outlet]
@@ -65,6 +73,10 @@ namespace SCS.iOS
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel lblDiskStatus { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lblDiskUsageValue { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -164,6 +176,11 @@ namespace SCS.iOS
 
         void ReleaseDesignerOutlets ()
         {
+            if (bgEditDiskUsage != null) {
+                bgEditDiskUsage.Dispose ();
+                bgEditDiskUsage = null;
+            }
+
             if (bgEditEventsDuration != null) {
                 bgEditEventsDuration.Dispose ();
                 bgEditEventsDuration = null;
@@ -199,6 +216,11 @@ namespace SCS.iOS
                 btnToggleTheme = null;
             }
 
+            if (contentView != null) {
+                contentView.Dispose ();
+                contentView = null;
+            }
+
             if (imgDiskStatusSliderTrackBG != null) {
                 imgDiskStatusSliderTrackBG.Dispose ();
                 imgDiskStatusSliderTrackBG = null;
@@ -227,6 +249,11 @@ namespace SCS.iOS
             if (lblDiskStatus != null) {
                 lblDiskStatus.Dispose ();
                 lblDiskStatus = null;
+            }
+
+            if (lblDiskUsageValue != null) {
+                lblDiskUsageValue.Dispose ();
+                lblDiskUsageValue = null;
             }
 
             if (lblEventsDuration != null) {

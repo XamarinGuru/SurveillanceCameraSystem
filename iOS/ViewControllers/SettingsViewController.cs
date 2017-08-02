@@ -3,6 +3,8 @@ using UIKit;
 using SCS.iOS.Helpers;
 using static SCS.Constants;
 using SCS.iOS.CustomComponents;
+using Foundation;
+using CoreGraphics;
 
 namespace SCS.iOS
 {
@@ -15,6 +17,9 @@ namespace SCS.iOS
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
+
+			NSNotificationCenter.DefaultCenter.AddObserver(UIKeyboard.DidShowNotification, KeyBoardUpNotification);
+			NSNotificationCenter.DefaultCenter.AddObserver(UIKeyboard.WillHideNotification, KeyBoardDownNotification);
 
             InitTheme();
             InitSettings();
@@ -39,6 +44,7 @@ namespace SCS.iOS
 
             bgEditEventsMax.Image = GetImageByTheme(FN_BG_TEXT_SLIDER);
             bgEditEventsDuration.Image = GetImageByTheme(FN_BG_TEXT_SLIDER);
+            bgEditDiskUsage.Image = GetImageByTheme(FN_BG_TEXT_SLIDER);
             bgEditServerIP.Image = GetImageByTheme(FN_BG_TEXT_SETTINGS);
 			bgEditPort.Image = GetImageByTheme(FN_BG_TEXT_SETTINGS);
 			bgEditPassword.Image = GetImageByTheme(FN_BG_TEXT_SETTINGS);
@@ -52,6 +58,7 @@ namespace SCS.iOS
 
             lblEventsMaxValue.TextColor = GetToggleTextColorByTheme(true);
             lblEventsDurationValue.TextColor = GetToggleTextColorByTheme(true);
+            lblDiskUsageValue.TextColor = GetToggleTextColorByTheme(true);
             txtServerIP.TextColor = GetToggleTextColorByTheme(true);
             txtPort.TextColor = GetToggleTextColorByTheme(true);
             txtPassword.TextColor = GetToggleTextColorByTheme(true);
@@ -69,11 +76,11 @@ namespace SCS.iOS
 
             SetSliderTheme(sliderEventsMax);
             SetSliderTheme(sliderEventsDuration);
+			sliderDiskStatus.TrackImage = GetImageByTheme(FN_BG_SLIDER_TRACK1);
 
             imgEventsMaxSliderTrackBG.Image = GetImageByTheme(FN_BG_SLIDER1);
             imgEventsDurationSliderTrackBG.Image = GetImageByTheme(FN_BG_SLIDER1);
-            imgDiskStatusSliderTrackBG.Image = GetImageByTheme(FN_BG_SLIDER2);
-            sliderDiskStatus.TrackImage = GetImageByTheme(FN_BG_SLIDER_TRACK1);
+            imgDiskStatusSliderTrackBG.Image = GetImageByTheme(FN_BG_SLIDER1);
 		}
 
         private void SetSliderTheme(RangeSliderControl slider)
@@ -131,5 +138,53 @@ namespace SCS.iOS
 
 			UIView.CommitAnimations();
         }
-    }
+
+		#region keyboard process
+        float scroll_amount = 0.0f;
+        bool moveViewUp = false;
+
+		void KeyBoardUpNotification(NSNotification notification)
+		{
+			//if (!txtEmail.IsEditing && !txtPassword.IsEditing)
+				//return;
+
+			CGRect r = UIKeyboard.BoundsFromNotification(notification);
+
+			scroll_amount = (float)r.Height / 2;
+
+			if (scroll_amount > 0)
+			{
+				moveViewUp = true;
+				ScrollTheView(moveViewUp);
+			}
+			else
+			{
+				moveViewUp = false;
+			}
+		}
+		void KeyBoardDownNotification(NSNotification notification)
+		{
+			if (moveViewUp) { ScrollTheView(false); }
+		}
+		void ScrollTheView(bool move)
+		{
+			UIView.BeginAnimations(string.Empty, System.IntPtr.Zero);
+			UIView.SetAnimationDuration(0.3);
+
+			CGRect frame = contentView.Frame;
+
+			if (move)
+			{
+				frame.Y = -(scroll_amount);
+			}
+			else
+			{
+				frame.Y = 0;
+			}
+
+			contentView.Frame = frame;
+			UIView.CommitAnimations();
+		}
+		#endregion
+	}
 }
