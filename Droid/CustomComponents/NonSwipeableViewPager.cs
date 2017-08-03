@@ -22,7 +22,6 @@ namespace SCS.CustomComponents
 			this.isEnable = true;
 		}
 
-
 		public override bool OnTouchEvent(MotionEvent e)
 		{
 			if (this.isEnable)

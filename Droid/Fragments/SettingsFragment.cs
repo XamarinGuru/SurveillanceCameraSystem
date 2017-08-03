@@ -1,5 +1,6 @@
 ﻿
 using System;
+using Android.Content.PM;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
@@ -9,11 +10,8 @@ using static SCS.Constants;
 
 namespace SCS.Fragments
 {
-    public class SettingsFragment : Android.Support.V4.App.Fragment
+    public class SettingsFragment : BaseFragment
     {
-        BaseActivity rootActivity;
-        View mView;
-
         CheckBox btnToggleTheme;
         TextView lblEventsMax, lblEventsDuration, lblDiskStatus, lblTheme, lblServerConnection,
             lblEventsMaxValue, lblEventsDurationValue, lblDiskUsageValue,
@@ -91,7 +89,7 @@ namespace SCS.Fragments
             btnScanQR = mView.FindViewById<ImageButton>(Resource.Id.btnScanQR);
 		}
 
-        void InitTheme()
+        public override void InitTheme()
         {
             lblEventsMax.SetTextColor(rootActivity.GetTextColorByTheme());
 			lblEventsDuration.SetTextColor(rootActivity.GetTextColorByTheme());
@@ -138,15 +136,13 @@ namespace SCS.Fragments
         private void ActionToggleTheme(object sender, EventArgs e)
         {
             var toggle = sender as CheckBox;
-			toggle.Selected = !toggle.Selected;
 
-			AppSettings.CurrentTheme = toggle.Selected ? TYPE_THEME.DARK : TYPE_THEME.LIGHT;
+            AppSettings.CurrentTheme = toggle.Checked ? TYPE_THEME.LIGHT : TYPE_THEME.DARK;
 
 			InitTheme();
             rootActivity.InitTheme();
 
-			//foreach (var vc in rootVC.subControllers)
-				//vc.InitTheme();
+			rootActivity.RequestedOrientation = ScreenOrientation.Portrait;
         }
     }
 }

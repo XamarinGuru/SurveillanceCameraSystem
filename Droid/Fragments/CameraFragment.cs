@@ -1,8 +1,8 @@
 ﻿
 using System;
 using System.Timers;
+using Android.Content.PM;
 using Android.OS;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
 using SCS.Activities;
@@ -11,13 +11,10 @@ using static SCS.Constants;
 
 namespace SCS.Fragments
 {
-    public class CameraFragment : Android.Support.V4.App.Fragment
+    public class CameraFragment : BaseFragment
     {
-        BaseActivity rootActivity;
-
         int nCurrentIndex = -1;
 
-        public View mView;
         ImageView imgTabBottomKitchen, imgTabBottomBackdoor,
             imgZoomControl, imgZoomBar, imgMotionInactive, imgCameraInactive, imgTripwireInactive, imgNotificationInactive, imgSounderInactive;
         TextView lblTabIconKitchen, lblTabIconBackdoor;
@@ -166,9 +163,10 @@ namespace SCS.Fragments
             }
         }
 
-        public void InitTheme()
+        public override void InitTheme()
 		{
-            imgZoomControl.SetImageResource(rootActivity.GetImageByTheme(FN_BG_ZOOM_CONTROL));
+			var imgResource = Resources.Configuration.Orientation == Android.Content.Res.Orientation.Portrait ? rootActivity.GetImageByTheme(FN_BG_ZOOM_CONTROL) : rootActivity.GetImageByTheme(FN_BG_ZOOM_CONTROL_LAND);
+			imgZoomControl.SetImageResource(imgResource);
 
 			var cameraResource = AppSettings.CurrentTheme == TYPE_THEME.DARK ? Resource.Drawable.item_btnCameraRecord_dark : Resource.Drawable.item_btnCameraRecord_light;
 			btnCamera.SetBackgroundResource(cameraResource);
@@ -235,7 +233,8 @@ namespace SCS.Fragments
 
 		private void ActionCameraExpand(object sender, EventArgs e)
 		{
-			//throw new NotImplementedException();
+            var orientation = Resources.Configuration.Orientation == Android.Content.Res.Orientation.Portrait ? ScreenOrientation.Landscape : ScreenOrientation.Portrait;
+            rootActivity.RequestedOrientation = orientation;
 		}
 
 		private void ActionCameraDirection(object sender, EventArgs e)

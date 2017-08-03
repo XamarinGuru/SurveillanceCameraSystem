@@ -1,25 +1,13 @@
 ﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
 using SCS.Activities;
 
 namespace SCS.Fragments
 {
-    public class HelpFragment : Android.Support.V4.App.Fragment
+    public class HelpFragment : BaseFragment
     {
-		BaseActivity rootActivity;
-		View mView;
-
 		TextView lblVersion, lblDescription;
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -43,7 +31,7 @@ namespace SCS.Fragments
             lblDescription = mView.FindViewById<TextView>(Resource.Id.lblDescription);
         }
 
-        void InitTheme()
+        public override void InitTheme()
         {
             lblVersion.SetTextColor(rootActivity.GetTextColorByTheme());
             lblDescription.SetTextColor(rootActivity.GetDescriptionColorByTheme());

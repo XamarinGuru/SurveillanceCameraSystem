@@ -208,6 +208,7 @@
     <Compile Include="CustomComponents\CamerViewListAdapter.cs" />
     <Compile Include="Fragments\SettingsFragment.cs" />
     <Compile Include="Fragments\HelpFragment.cs" />
+    <Compile Include="Fragments\BaseFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -337,6 +338,10 @@
     <AndroidResource Include="Resources\drawable\item_seekBarProgress_light.axml" />
     <AndroidResource Include="Resources\drawable\item_seekBarThumb_light.axml" />
     <AndroidResource Include="Resources\drawable\item_btnCameraRecord_light.axml" />
+    <AndroidResource Include="Resources\layout-land\CameraFragment.axml" />
+    <AndroidResource Include="Resources\layout-land\TabBarActivity.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
@@ -361,5 +366,6 @@
     <Folder Include="Activities\" />
     <Folder Include="Helpers\" />
     <Folder Include="CustomComponents\" />
+    <Folder Include="Resources\layout-land\" />
   </ItemGroup>
 </Project>

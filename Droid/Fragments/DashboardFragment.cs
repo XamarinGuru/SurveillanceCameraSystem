@@ -11,11 +11,8 @@ using static SCS.Constants;
 
 namespace SCS.Fragments
 {
-	public class DashboardFragment : Android.Support.V4.App.Fragment
+	public class DashboardFragment : BaseFragment
 	{
-		BaseActivity rootActivity;
-        View mView;
-
         CheckBox btnCamera1, btnCamera2;
         TextView lblRecentActivity, lblSymbolNumber;
         ImageView imgSymbolNumber;
@@ -53,7 +50,7 @@ namespace SCS.Fragments
             lblSymbolNumber.Text = dummyData.Count.ToString();
 		}
 
-        void InitTheme()
+        public override void InitTheme()
         {
             var cameraResource = AppSettings.CurrentTheme == TYPE_THEME.DARK ? Resource.Drawable.item_btnCameraRecord_dark : Resource.Drawable.item_btnCameraRecord_light;
             btnCamera1.SetBackgroundResource(cameraResource);

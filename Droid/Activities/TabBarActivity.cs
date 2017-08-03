@@ -1,16 +1,19 @@
 ﻿
 using Android.App;
+using Android.Content;
+using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
 using Android.Support.V4.View;
 using Android.Views;
+using Android.Views.InputMethods;
 using Android.Widget;
 using SCS.CustomComponents;
 using static SCS.Constants;
 
 namespace SCS.Activities
 {
-    [Activity(Label = "TabBarActivity", WindowSoftInputMode = SoftInput.AdjustPan)]
+    [Activity(Label = "TabBarActivity", WindowSoftInputMode = SoftInput.AdjustPan, ScreenOrientation = ScreenOrientation.Portrait)]
     public class TabBarActivity : BaseActivity
     {
         NonSwipeableViewPager _pager;
@@ -79,10 +82,20 @@ namespace SCS.Activities
 		private void PagerOnPageSelected(object sender, ViewPager.PageSelectedEventArgs e)
 		{
 			TabBarAnimation(e.Position);
+
+            var currentFragment = ((sender as NonSwipeableViewPager).Adapter as TabViewAdapter).GetRegisteredFragment(e.Position);
+            if (currentFragment != null)
+                currentFragment.InitTheme();
 		}
 
 		private void TabBarAnimation(int position)
 		{
+            if (this.CurrentFocus != null && this.CurrentFocus.WindowToken != null)
+            {
+				InputMethodManager imm = (InputMethodManager)GetSystemService(Context.InputMethodService);
+				imm.HideSoftInputFromWindow(this.CurrentFocus.WindowToken, HideSoftInputFlags.NotAlways);
+			}
+			
             imgTabIconDashboard.SetImageResource(GetImageByTheme(FN_ICON_TAB_DASHBOARD_INACTIVE));
             imgTabIconCamera.SetImageResource(GetImageByTheme(FN_ICON_TAB_CAMERA_INACTIVE));
             imgTabIconSettings.SetImageResource(GetImageByTheme(FN_ICON_TAB_SETTINGS_INACTIVE));
