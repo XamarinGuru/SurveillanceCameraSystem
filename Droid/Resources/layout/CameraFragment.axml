@@ -134,7 +134,7 @@
                             android:button="@null"
                             android:layout_alignBottom="@id/imgZoomControl"
                             android:layout_alignParentRight="true"
-                            android:background="@drawable/item_btncamerarecord" />
+                            android:background="@drawable/item_btncamerarecord_dark" />
                         <LinearLayout
                             android:orientation="horizontal"
                             android:minWidth="25px"
@@ -495,13 +495,14 @@
                             android:id="@+id/btnZoomOut"
                             android:background="@null"
                             android:scaleType="centerCrop"
-                            android:adjustViewBounds="true" />
+                            android:adjustViewBounds="true"
+                            android:tag="0" />
                         <RelativeLayout
                             android:minWidth="25px"
                             android:minHeight="25px"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:id="@+id/relativeLayout3"
+                            android:id="@+id/viewZoomBarContent"
                             android:layout_weight="5">
                             <ImageView
                                 android:src="@drawable/bg_zoom_bar_dark"
@@ -511,18 +512,18 @@
                                 android:scaleType="centerCrop"
                                 android:adjustViewBounds="true"
                                 android:layout_centerInParent="true"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginRight="10dp" />
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp" />
                             <ImageButton
                                 android:src="@drawable/icon_slider_thumb_dark"
                                 android:layout_width="15dp"
                                 android:layout_height="15dp"
                                 android:id="@+id/btnSliderThumb"
-                                android:layout_centerInParent="true"
                                 android:background="@null"
                                 android:scaleType="centerCrop"
                                 android:adjustViewBounds="true"
-                                android:cropToPadding="true" />
+                                android:cropToPadding="true"
+                                android:layout_centerInParent="true" />
                         </RelativeLayout>
                         <ImageButton
                             android:src="@drawable/icon_zoom_in_light"
@@ -531,7 +532,8 @@
                             android:id="@+id/btnZoomIn"
                             android:background="@null"
                             android:scaleType="centerCrop"
-                            android:adjustViewBounds="true" />
+                            android:adjustViewBounds="true"
+                            android:tag="1" />
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="horizontal"
@@ -648,7 +650,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/viewCameraActive"
-                    p3:visibility="visible">
+                    p3:visibility="gone">
                     <ImageView
                         android:src="@drawable/icon_cameradisconnect_active_dark"
                         android:layout_width="match_parent"
@@ -708,7 +710,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/viewTripwireActive"
-                    p3:visibility="visible">
+                    p3:visibility="gone">
                     <ImageView
                         android:src="@drawable/icon_tripwire_actie_dark"
                         android:layout_width="match_parent"
@@ -768,7 +770,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/viewNotificationActive"
-                    p3:visibility="visible">
+                    p3:visibility="gone">
                     <ImageView
                         android:src="@drawable/icon_notification_actie_dark"
                         android:layout_width="match_parent"
@@ -827,7 +829,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/viewSounderActive"
-                    p3:visibility="visible">
+                    p3:visibility="gone">
                     <ImageView
                         android:src="@drawable/icon_sounder_actie_dark"
                         android:layout_width="match_parent"

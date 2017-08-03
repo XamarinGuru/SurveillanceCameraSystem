@@ -52,9 +52,9 @@
                     <CheckBox
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:id="@+id/checkBox1"
+                        android:id="@+id/btnCamera1"
                         android:button="@null"
-                        android:background="@drawable/item_btncamerarecord"
+                        android:background="@drawable/item_btncamerarecord_dark"
                         android:layout_alignParentRight="true"
                         android:layout_marginTop="15dp"
                         android:layout_marginRight="15dp" />
@@ -87,9 +87,9 @@
                     <CheckBox
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:id="@+id/checkBox1"
+                        android:id="@+id/btnCamera2"
                         android:button="@null"
-                        android:background="@drawable/item_btncamerarecord"
+                        android:background="@drawable/item_btncamerarecord_dark"
                         android:layout_alignParentRight="true"
                         android:layout_marginTop="15dp"
                         android:layout_marginRight="15dp" />
@@ -111,11 +111,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:id="@+id/textView2"
+                            android:id="@+id/lblRecentActivity"
                             android:text="Recent Activity"
                             android:gravity="center_vertical"
                             android:textColor="#ffffffff"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:layout_marginLeft="20dp" />
                     </LinearLayout>
                     <RelativeLayout
@@ -129,7 +129,7 @@
                             android:src="@drawable/bg_symbol_number_dark"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:id="@+id/imageView2"
+                            android:id="@+id/imgSymbolNumber"
                             android:scaleType="fitCenter"
                             android:adjustViewBounds="true"
                             android:padding="12dp" />
@@ -140,7 +140,8 @@
                             android:text="13"
                             android:gravity="center"
                             android:layout_centerInParent="true"
-                            android:textSize="11dp" />
+                            android:textSize="11dp"
+                            android:textColor="#ff000000" />
                     </RelativeLayout>
                 </LinearLayout>
                 <GridView xmlns:p3="http://schemas.android.com/tools"

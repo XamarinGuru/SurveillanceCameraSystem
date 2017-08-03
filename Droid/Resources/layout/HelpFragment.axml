@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblVersion"
+        android:text="Version 1.0.013"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblDescription"
+        android:text="Lorem ipsum dolor sit amet, adipiscing elit, sed do idunt ut labore et dolore enim ad"
+        android:textSize="14dp"
+        android:layout_marginTop="10dp" />
+</LinearLayout>

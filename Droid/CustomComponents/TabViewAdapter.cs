@@ -22,7 +22,7 @@ namespace SCS.CustomComponents
             if (position == 0) return new DashboardFragment();
             if (position == 1) return new CameraFragment();
             if (position == 2) return new SettingsFragment();
-            if (position == 3) return new DashboardFragment();
+            if (position == 3) return new HelpFragment();
 
 			TabChanged?.Invoke(position, null);
 

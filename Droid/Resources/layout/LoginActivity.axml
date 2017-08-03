@@ -3,14 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <ImageView
+        android:src="@drawable/bg_dark"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imgBackground"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true" />
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/ActionBar"
         android:minWidth="25px"
-        android:minHeight="25px"
-        android:background="@drawable/bg_dark">
+        android:minHeight="25px">
         <LinearLayout
             android:orientation="horizontal"
             android:minWidth="25px"
@@ -63,7 +69,7 @@
                     <ImageView
                         android:src="@drawable/icon_logo_dark"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageView1"
+                        android:id="@+id/imgLogo"
                         android:layout_weight="8"
                         android:layout_width="0dp" />
                     <LinearLayout
@@ -103,7 +109,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView1"
+                            android:id="@+id/lblServerIP"
                             android:text="Server IP"
                             android:layout_marginLeft="10dp" />
                         <RelativeLayout
@@ -115,7 +121,7 @@
                                 android:src="@drawable/bg_edit_server_ip_dark"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:id="@+id/imageView2"
+                                android:id="@+id/bgEditServerIp"
                                 android:scaleType="fitStart"
                                 android:adjustViewBounds="true" />
                             <LinearLayout
@@ -133,14 +139,17 @@
                                     android:layout_height="match_parent"
                                     android:id="@+id/linearLayout19"
                                     android:layout_weight="1" />
-                                <TextView
+                                <EditText
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
-                                    android:id="@+id/textView2"
+                                    android:id="@+id/txtServerIP"
                                     android:layout_weight="3"
+                                    android:singleLine="true"
+                                    android:background="@android:color/transparent"
                                     android:gravity="center_vertical"
                                     android:text="192.168.129.253"
-                                    android:layout_marginBottom="3dp" />
+                                    android:layout_marginBottom="3dp"
+                                    android:textSize="15dp" />
                             </LinearLayout>
                         </RelativeLayout>
                     </LinearLayout>
@@ -153,7 +162,7 @@
                         android:layout_weight="4"
                         android:layout_width="0dp">
                         <TextView
-                            android:id="@+id/textView1"
+                            android:id="@+id/lblPort"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Port"
@@ -169,7 +178,7 @@
                                 android:src="@drawable/bg_edit_port_dark"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:id="@+id/imageView2"
+                                android:id="@+id/bgEditPort"
                                 android:scaleType="fitStart"
                                 android:adjustViewBounds="true" />
                             <LinearLayout
@@ -187,14 +196,17 @@
                                     android:layout_height="match_parent"
                                     android:id="@+id/linearLayout19"
                                     android:layout_weight="1" />
-                                <TextView
+                                <EditText
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
-                                    android:id="@+id/textView2"
+                                    android:id="@+id/txtPort"
                                     android:layout_weight="1.5"
+                                    android:singleLine="true"
+                                    android:background="@android:color/transparent"
                                     android:gravity="center_vertical"
                                     android:text="65536"
-                                    android:layout_marginBottom="3dp" />
+                                    android:layout_marginBottom="3dp"
+                                    android:textSize="15dp" />
                             </LinearLayout>
                         </RelativeLayout>
                     </LinearLayout>
@@ -227,7 +239,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView1"
+                            android:id="@+id/lblPassword"
                             android:text="Password"
                             android:layout_marginLeft="10dp" />
                         <RelativeLayout
@@ -239,7 +251,7 @@
                                 android:src="@drawable/bg_edit_psw_dark"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:id="@+id/imageView2"
+                                android:id="@+id/bgEditPSW"
                                 android:scaleType="fitStart"
                                 android:adjustViewBounds="true" />
                             <LinearLayout
@@ -257,15 +269,19 @@
                                     android:layout_height="match_parent"
                                     android:id="@+id/linearLayout19"
                                     android:layout_weight="1" />
-                                <TextView
+                                <EditText
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
-                                    android:id="@+id/textView2"
+                                    android:id="@+id/txtPassword"
                                     android:layout_weight="5"
+                                    android:singleLine="true"
+                                    android:background="@android:color/transparent"
                                     android:gravity="center_vertical"
                                     android:text="192.168.129.253"
                                     android:password="true"
-                                    android:layout_marginBottom="3dp" />
+                                    android:layout_marginBottom="3dp"
+                                    android:textSize="15dp"
+                                    android:textStyle="bold" />
                             </LinearLayout>
                         </RelativeLayout>
                     </LinearLayout>
@@ -291,7 +307,7 @@
                         android:src="@drawable/bg_btn_login_dark"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:id="@+id/ActionLogin"
+                        android:id="@+id/btnLogin"
                         android:scaleType="fitStart"
                         android:adjustViewBounds="true"
                         android:background="@null" />
@@ -311,7 +327,7 @@
                         android:minHeight="25px"
                         android:layout_width="0dp"
                         android:layout_height="1dp"
-                        android:id="@+id/linearLayout20"
+                        android:id="@+id/viewLSeperator"
                         android:layout_weight="1"
                         android:background="#ffbbbbbb" />
                     <LinearLayout
@@ -325,7 +341,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:id="@+id/textView3"
+                            android:id="@+id/lblOR"
                             android:text="OR"
                             android:gravity="center"
                             android:textSize="20dp"
@@ -338,7 +354,7 @@
                         android:minHeight="25px"
                         android:layout_width="0dp"
                         android:layout_height="1dp"
-                        android:id="@+id/linearLayout22"
+                        android:id="@+id/viewRSeperator"
                         android:layout_weight="1"
                         android:background="#ffbbbbbb" />
                 </LinearLayout>
@@ -354,7 +370,7 @@
                         android:src="@drawable/bg_btn_scan_qr_dark"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageButton1"
+                        android:id="@+id/btnScanQR"
                         android:scaleType="fitStart"
                         android:adjustViewBounds="true"
                         android:background="@null" />
@@ -370,7 +386,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/textView3"
+                        android:id="@+id/lblQRDescription"
                         android:gravity="center"
                         android:text="Scan QR code from settings page of SmartLens windows app."
                         android:textSize="12dp"

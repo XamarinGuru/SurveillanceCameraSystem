@@ -8,6 +8,6 @@
     <item 
         android:id="@android:id/progress" > 
         <clip 
-            android:drawable="@drawable/item_seekBarProgress1" />
+            android:drawable="@drawable/item_seekBarProgress_dark" />
     </item>
 </layer-list>

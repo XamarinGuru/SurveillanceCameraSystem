@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Android.Animation;
-using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
 using SCS.Activities;
 using SCS.CustomComponents;
+using SCS.Helpers;
 using SCS.ViewModels;
 using static SCS.Constants;
 
@@ -17,7 +16,9 @@ namespace SCS.Fragments
 		BaseActivity rootActivity;
         View mView;
 
-        TextView lblSymbolNumber;
+        CheckBox btnCamera1, btnCamera2;
+        TextView lblRecentActivity, lblSymbolNumber;
+        ImageView imgSymbolNumber;
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
@@ -30,34 +31,37 @@ namespace SCS.Fragments
 			base.OnViewCreated(view, savedInstanceState);
 			mView = view;
 
-			SetUISettings();
+			InitUISettings();
+			InitTheme();
 		}
 
-		private void SetUISettings()
+		private void InitUISettings()
 		{
-			#region UI Variables
-            var gridview = mView.FindViewById<GridView>(Resource.Id.listViewCamera);
+            btnCamera1 = mView.FindViewById<CheckBox>(Resource.Id.btnCamera1);
+            btnCamera2 = mView.FindViewById<CheckBox>(Resource.Id.btnCamera2);
 
-			#region get dummy data
-			var dummyData = GetDummyData();
-			#endregion
-			gridview.Adapter = new CamerViewListAdapter(rootActivity, dummyData);
-            SetGridViewHeightBasedOnChildren(gridview, 3);
-
+            lblRecentActivity = mView.FindViewById<TextView>(Resource.Id.lblRecentActivity);
 			lblSymbolNumber = mView.FindViewById<TextView>(Resource.Id.lblSymbolNumber);
+
+            imgSymbolNumber = mView.FindViewById<ImageView>(Resource.Id.imgSymbolNumber);
+
+			var gridview = mView.FindViewById<GridView>(Resource.Id.listViewCamera);
+			var dummyData = GetDummyData();
+			gridview.Adapter = new CamerViewListAdapter(rootActivity, dummyData);
+			SetGridViewHeightBasedOnChildren(gridview, 3);
+
             lblSymbolNumber.Text = dummyData.Count.ToString();
+		}
 
-            #endregion
+        void InitTheme()
+        {
+            var cameraResource = AppSettings.CurrentTheme == TYPE_THEME.DARK ? Resource.Drawable.item_btnCameraRecord_dark : Resource.Drawable.item_btnCameraRecord_light;
+            btnCamera1.SetBackgroundResource(cameraResource);
+			btnCamera2.SetBackgroundResource(cameraResource);
 
+            lblRecentActivity.SetTextColor(rootActivity.GetTextColorByTheme());
 
-			#region Actions
-			//mView.FindViewById<RelativeLayout>(Resource.Id.collapsCycle).Click += ActionCollepse;
-			//mView.FindViewById<RelativeLayout>(Resource.Id.collapsRun).Click += ActionCollepse;
-			//mView.FindViewById<RelativeLayout>(Resource.Id.collapsSwim).Click += ActionCollepse;
-			//mView.FindViewById<Button>(Resource.Id.ActionViewCalendar).Click += ActionViewCalendar;
-
-			//mView.FindViewById<Button>(Resource.Id.ActionViewCalendar).SetBackgroundColor(rootActivity.GROUP_COLOR);
-			#endregion
+            imgSymbolNumber.SetImageResource(rootActivity.GetImageByTheme(FN_BG_BTN_SYMBOL_NUMBER));
 		}
 
 		public List<CameraListItem> GetDummyData()

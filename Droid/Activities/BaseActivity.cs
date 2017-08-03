@@ -22,11 +22,7 @@ namespace SCS.Activities
 		{
 			Window.RequestFeature(WindowFeatures.NoTitle);
 			base.OnCreate(savedInstanceState);
-
-			//SetGroupColor();
 		}
-
-		
 
 		public override bool OnTouchEvent(MotionEvent e)
 		{

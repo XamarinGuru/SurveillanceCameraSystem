@@ -10,10 +10,11 @@ using static SCS.Constants;
 
 namespace SCS.Activities
 {
-    [Activity(Label = "TabBarActivity")]
+    [Activity(Label = "TabBarActivity", WindowSoftInputMode = SoftInput.AdjustPan)]
     public class TabBarActivity : BaseActivity
     {
         NonSwipeableViewPager _pager;
+        int _nCurrentPage = 0;
 
         ImageView imgTabIconDashboard, imgTabIconCamera, imgTabIconSettings, imgTabIconHelp,
             imgTabBottomDashboard, imgTabBottomCamera, imgTabBottomSettings, imgTabBottomHelp;
@@ -27,8 +28,6 @@ namespace SCS.Activities
 
 			InitUISettings();
             InitTheme();
-            SetCurrentPage(0);
-            TabBarAnimation(0);
 		}
 
 		void InitUISettings()
@@ -66,11 +65,15 @@ namespace SCS.Activities
         {
             _pager.SetBackgroundColor(GetBackgroundColorByTheme());
             imgTopBar.SetBackgroundResource(GetImageByTheme(FN_BG_TOP_BAR));
+
+            SetCurrentPage(_nCurrentPage);
+            TabBarAnimation(_nCurrentPage);
         }
 
 		public void SetCurrentPage(int position)
 		{
 			_pager.SetCurrentItem(position, true);
+            _nCurrentPage = position;
 		}
 
 		private void PagerOnPageSelected(object sender, ViewPager.PageSelectedEventArgs e)

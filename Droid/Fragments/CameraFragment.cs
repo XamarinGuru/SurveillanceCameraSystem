@@ -1,17 +1,12 @@
 ﻿
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
+using System.Timers;
 using Android.OS;
-using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
 using SCS.Activities;
+using SCS.Helpers;
 using static SCS.Constants;
 
 namespace SCS.Fragments
@@ -43,6 +38,8 @@ namespace SCS.Fragments
 			base.OnViewCreated(view, savedInstanceState);
 
             mView = view;
+
+            StartTimer();
 
             InitUISettings();
 			InitTheme();
@@ -97,6 +94,9 @@ namespace SCS.Fragments
             mView.FindViewById(Resource.Id.ActionCameraDirection6).Click += ActionCameraDirection;
             mView.FindViewById(Resource.Id.ActionCameraDirection7).Click += ActionCameraDirection;
 
+            btnZoomIn.Touch += ActionCameraZoom;
+            btnZoomOut.Touch += ActionCameraZoom;
+
 			viewBottomBarMotion.Click += ActionAction;
 			viewBottomBarCamera.Click += ActionAction;
 			viewBottomBarNotification.Click += ActionAction;
@@ -104,16 +104,79 @@ namespace SCS.Fragments
 			viewBottomBarSounder.Click += ActionAction;
         }
 
+		Timer _timer = new Timer();
+		int nZoomType = -1;
 
+		void StartTimer()
+		{
+			_timer.Interval = 200;
+			_timer.Elapsed -= OnTimedEvent;
+			_timer.Elapsed += OnTimedEvent;
+			_timer.Enabled = true;
+		}
+
+        private void OnTimedEvent(object sender, ElapsedEventArgs e)
+        {
+            rootActivity.RunOnUiThread(() =>
+                {
+                    var viewZoomBarContent = mView.FindViewById<RelativeLayout>(Resource.Id.viewZoomBarContent);
+                    var barWidth = imgZoomBar.Width;
+                    var barPosX = imgZoomBar.GetX();
+                    var btnWidth = btnSliderThumb.Width;
+                    var btnPosX = btnSliderThumb.GetX();
+
+                    var step = imgZoomBar.Width / 8.0f;
+
+                    if (nZoomType != -1)
+                    {
+                        if (nZoomType == 0)
+                        {
+                            btnPosX -= step;
+                            if (btnPosX < barPosX - btnWidth / 2)
+                                btnPosX = barPosX - btnWidth / 2;
+                        }
+                        else
+                        {
+                            btnPosX += step;
+                            if (btnPosX > barPosX + barWidth - btnWidth / 2)
+                                btnPosX = barPosX + barWidth - btnWidth / 2;
+                        }
+                        btnSliderThumb.SetX(btnPosX);
+                    }
+                    else
+                    {
+                        btnPosX = (viewZoomBarContent.Width - btnWidth) / 2;
+                    }
+
+                    btnSliderThumb.SetX(btnPosX);
+                });
+        }
+
+        private void ActionCameraZoom(object sender, View.TouchEventArgs e)
+        {
+            
+            switch(e.Event.Action)
+            {
+                case MotionEventActions.Down:
+                    nZoomType = int.Parse((sender as ImageButton).Tag.ToString());
+                    break;
+                case MotionEventActions.Up:
+                    nZoomType = -1;
+					break;
+            }
+        }
 
         public void InitTheme()
 		{
-            imgZoomControl.SetBackgroundResource(rootActivity.GetImageByTheme(FN_BG_ZOOM_CONTROL));
-            //btnCamera.SetBackgroundResource(rootActivity.GetImageByTheme(FN_ICON_CAMERA_BACK));
-            imgZoomBar.SetBackgroundResource(rootActivity.GetImageByTheme(FN_BG_ZOOM_BAR));
-			btnSliderThumb.SetBackgroundResource(rootActivity.GetImageByTheme(FN_ICON_SLIDER_THUMB));
-			btnZoomIn.SetBackgroundResource(rootActivity.GetImageByTheme(FN_ICON_ZOOM_IN));
-			btnZoomOut.SetBackgroundResource(rootActivity.GetImageByTheme(FN_ICON_ZOOM_OUT));
+            imgZoomControl.SetImageResource(rootActivity.GetImageByTheme(FN_BG_ZOOM_CONTROL));
+
+			var cameraResource = AppSettings.CurrentTheme == TYPE_THEME.DARK ? Resource.Drawable.item_btnCameraRecord_dark : Resource.Drawable.item_btnCameraRecord_light;
+			btnCamera.SetBackgroundResource(cameraResource);
+
+            imgZoomBar.SetImageResource(rootActivity.GetImageByTheme(FN_BG_ZOOM_BAR));
+            btnSliderThumb.SetImageResource(rootActivity.GetImageByTheme(FN_ICON_SLIDER_THUMB));
+			btnZoomIn.SetImageResource(rootActivity.GetImageByTheme(FN_ICON_ZOOM_IN));
+			btnZoomOut.SetImageResource(rootActivity.GetImageByTheme(FN_ICON_ZOOM_OUT));
 
             imgMotionInactive.SetImageResource(rootActivity.GetImageByTheme(FN_ICON_MOTION_DETECT_INACTIE));
             imgCameraInactive.SetImageResource(rootActivity.GetImageByTheme(FN_ICON_CAMERA_DISCONNECT_INACTIE));
@@ -148,8 +211,8 @@ namespace SCS.Fragments
 
 		void TabBarAnimation()
 		{
-            imgTabBottomKitchen.SetBackgroundResource(rootActivity.GetImageByTheme(FN_ICON_SUBTAB_BOTTOM));
-            imgTabBottomBackdoor.SetBackgroundResource(rootActivity.GetImageByTheme(FN_ICON_SUBTAB_BOTTOM));
+            imgTabBottomKitchen.SetImageResource(rootActivity.GetImageByTheme(FN_ICON_SUBTAB_BOTTOM));
+            imgTabBottomBackdoor.SetImageResource(rootActivity.GetImageByTheme(FN_ICON_SUBTAB_BOTTOM));
 
             lblTabIconKitchen.SetTextColor(rootActivity.GetSubtabColorByTheme(true));
             lblTabIconBackdoor.SetTextColor(rootActivity.GetSubtabColorByTheme(true));

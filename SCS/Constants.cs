@@ -52,7 +52,8 @@ namespace SCS
         public const string FN_BG_BTN_SCAN_QR_SETTINGS = "bg_btn_scan_qr_settings";
         public const string FN_BG_SLIDER_TRACK1 = "bg_slider_track1";
         public const string FN_BG_SLIDER1 = "bg_slider1";
-        public const string FN_BG_SLIDER2 = "bg_slider2";
+        public const string FN_BG_SEEKBAR = "item_seekBar";
+        public const string FN_BG_SEEKBAR_THUMB = "item_seekBarThumb";
         #endregion
 
         #region color

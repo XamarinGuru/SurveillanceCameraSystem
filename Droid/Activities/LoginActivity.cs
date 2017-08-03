@@ -5,12 +5,19 @@ using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Widget;
+using static SCS.Constants;
 
 namespace SCS.Activities
 {
 	[Activity(Label = "LoginActivity", ScreenOrientation = ScreenOrientation.Portrait)]
 	public class LoginActivity : BaseActivity
 	{
+		ImageView imgBackground, imgLogo, bgEditServerIp, bgEditPort, bgEditPSW;
+        ImageButton btnLogin, btnScanQR;
+        TextView lblServerIP, lblPort, lblPassword, lblOR, lblQRDescription;
+        EditText txtServerIP, txtPort, txtPassword;
+        LinearLayout viewLSeperator, viewRSeperator;
+
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
@@ -22,48 +29,57 @@ namespace SCS.Activities
 
 		void InitUISettings()
 		{
-            FindViewById<ImageButton>(Resource.Id.ActionLogin).Click += ActionLogin;
-			//FindViewById<ImageView>(Resource.Id.ActionBack).Click += ActionBack;
-			//FindViewById<Button>(Resource.Id.ActionForgotPassword).Click += ActionForgotPassword;
+            imgBackground = FindViewById<ImageView>(Resource.Id.imgBackground);
+            imgLogo = FindViewById<ImageView>(Resource.Id.imgLogo);
+            bgEditServerIp = FindViewById<ImageView>(Resource.Id.bgEditServerIp);
+            bgEditPort = FindViewById<ImageView>(Resource.Id.bgEditPort);
+            bgEditPSW = FindViewById<ImageView>(Resource.Id.bgEditPSW);
 
-			//txtEmail = FindViewById<EditText>(Resource.Id.txtEmail);
-			//txtPassword = FindViewById<EditText>(Resource.Id.txtPassword);
+            btnLogin = FindViewById<ImageButton>(Resource.Id.btnLogin);
+			btnScanQR = FindViewById<ImageButton>(Resource.Id.btnScanQR);
 
-			//invalidEmail = FindViewById<ImageView>(Resource.Id.invalidEmail);
-			//invalidPassword = FindViewById<ImageView>(Resource.Id.invalidPassword);
-			//errorEmail = FindViewById<LinearLayout>(Resource.Id.errorEmail);
-			//errorPassword = FindViewById<LinearLayout>(Resource.Id.errorPassword);
+            btnLogin.Click += ActionLogin;
 
-			//invalidEmail.Visibility = ViewStates.Invisible;
-			//invalidPassword.Visibility = ViewStates.Invisible;
-			//errorEmail.Visibility = ViewStates.Invisible;
-			//errorPassword.Visibility = ViewStates.Invisible;
+			lblServerIP = FindViewById<TextView>(Resource.Id.lblServerIP);
+			lblPort = FindViewById<TextView>(Resource.Id.lblPort);
+			lblPassword = FindViewById<TextView>(Resource.Id.lblPassword);
 
-			//FindViewById<Button>(Resource.Id.ActionLogin).SetBackgroundColor(GROUP_COLOR);
+			txtServerIP = FindViewById<EditText>(Resource.Id.txtServerIP);
+			txtPort = FindViewById<EditText>(Resource.Id.txtPort);
+			txtPassword = FindViewById<EditText>(Resource.Id.txtPassword);
+
+			lblOR = FindViewById<TextView>(Resource.Id.lblOR);
+			lblQRDescription = FindViewById<TextView>(Resource.Id.lblQRDescription);
+
+            viewLSeperator = FindViewById<LinearLayout>(Resource.Id.viewLSeperator);
+			viewRSeperator = FindViewById<LinearLayout>(Resource.Id.viewRSeperator);
 		}
 
 		public override void InitTheme()
 		{
-			//imgBackground.Image = GetImageByTheme(FN_BACKGROUND);
-			//imgLogo.Image = GetImageByTheme(FN_LOGO);
-			//bgEditServerIp.Image = GetImageByTheme(FN_BG_EDIT_SERVER_IP);
-			//bgEditPort.Image = GetImageByTheme(FN_BG_EDIT_PORT);
-			//bgEditPSW.Image = GetImageByTheme(FN_BG_EDIT_PSW);
-			//btnLogin.SetBackgroundImage(GetImageByTheme(FN_BG_BTN_LOGIN), UIControlState.Normal);
-			//btnScanQR.SetBackgroundImage(GetImageByTheme(FN_BG_BTN_SCAN_QR), UIControlState.Normal);
+            imgBackground.SetImageResource(GetImageByTheme(FN_BACKGROUND));
+            imgLogo.SetImageResource(GetImageByTheme(FN_LOGO));
 
-			//lblServerIP.TextColor = GetTextColorByTheme();
-			//lblPort.TextColor = GetTextColorByTheme();
-			//lblPassword.TextColor = GetTextColorByTheme();
-			//txtServerIP.TextColor = GetTextColorByTheme();
-			//txtPort.TextColor = GetTextColorByTheme();
-			//txtPassword.TextColor = GetTextColorByTheme();
+            bgEditServerIp.SetImageResource(GetImageByTheme(FN_BG_EDIT_SERVER_IP));
+            bgEditPort.SetImageResource(GetImageByTheme(FN_BG_EDIT_PORT));
+            bgEditPSW.SetImageResource(GetImageByTheme(FN_BG_EDIT_PSW));
 
-			//lblOR.TextColor = GetTextColorByTheme(false);
-			//lblQRDescription.TextColor = GetTextColorByTheme(false);
+			btnLogin.SetImageResource(GetImageByTheme(FN_BG_BTN_LOGIN));
+			btnScanQR.SetImageResource(GetImageByTheme(FN_BG_BTN_SCAN_QR));
 
-			//viewLSeperator.BackgroundColor = GetTextColorByTheme(false);
-			//viewRSeperator.BackgroundColor = GetTextColorByTheme(false);
+            lblServerIP.SetTextColor(GetTextColorByTheme());
+            lblPort.SetTextColor(GetTextColorByTheme());
+            lblPassword.SetTextColor(GetTextColorByTheme());
+
+            txtServerIP.SetTextColor(GetTextColorByTheme());
+            txtPort.SetTextColor(GetTextColorByTheme());
+            txtPassword.SetTextColor(GetTextColorByTheme());
+
+            lblOR.SetTextColor(GetTextColorByTheme(false));
+            lblQRDescription.SetTextColor(GetTextColorByTheme(false));
+
+            viewLSeperator.SetBackgroundColor(GetTextColorByTheme(false));
+            viewRSeperator.SetBackgroundColor(GetTextColorByTheme(false));
 		}
 
         void ActionLogin(object sender, EventArgs e)

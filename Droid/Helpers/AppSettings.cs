@@ -16,7 +16,7 @@ namespace SCS.Helpers
             {
                 try
                 {
-                    var currentTheme = _appSettings.GetString(themeKey, "");
+                    var currentTheme = _appSettings.GetInt(themeKey, 0);
                     return (TYPE_THEME)Enum.ToObject(typeof(TYPE_THEME), currentTheme);
                 }catch{
                     return TYPE_THEME.DARK;

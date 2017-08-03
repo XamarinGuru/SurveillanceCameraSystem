@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:drawable="@drawable/bg_toggle_dark_theme_dark"
+        android:drawable="@drawable/icon_camera_back_light"
         android:state_checked="false" />
     <item
-        android:drawable="@drawable/bg_toggle_light_theme_light"
+        android:drawable="@drawable/icon_camera_front_light"
         android:state_checked="true" />
     <item
-        android:drawable="@drawable/bg_toggle_dark_theme_dark" />
+        android:drawable="@drawable/icon_camera_back_light" />
 </selector>
