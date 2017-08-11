@@ -36,6 +36,8 @@ namespace SCS.Fragments
 		{
             btnCamera1 = mView.FindViewById<CheckBox>(Resource.Id.btnCamera1);
             btnCamera2 = mView.FindViewById<CheckBox>(Resource.Id.btnCamera2);
+            btnCamera1.Click += ActionCameraRecord;
+            btnCamera2.Click += ActionCameraRecord;
 
             lblRecentActivity = mView.FindViewById<TextView>(Resource.Id.lblRecentActivity);
 			lblSymbolNumber = mView.FindViewById<TextView>(Resource.Id.lblSymbolNumber);
@@ -49,6 +51,8 @@ namespace SCS.Fragments
 
             lblSymbolNumber.Text = dummyData.Count.ToString();
 		}
+
+
 
         public override void InitTheme()
         {
@@ -70,6 +74,45 @@ namespace SCS.Fragments
 			}
 			return returnData;
 		}
+
+		private void ActionCameraRecord(object sender, EventArgs e)
+		{
+			var cameraRecord = sender as CheckBox;
+			var nCamera = int.Parse(cameraRecord.Tag.ToString());
+			if (cameraRecord.Checked)
+			{
+				if (nCamera == 0)
+					HandlerCamera1StartRecord();
+				else
+					HandlerCamera2StartRecord();
+			}
+			else
+			{
+				if (nCamera == 0)
+					HandlerCamera1StopRecord();
+				else
+					HandlerCamera2StopRecord();
+			}
+		}
+
+		#region Handlers
+		void HandlerCamera1StartRecord()
+		{
+			//ShowMessageBox("Started Record.", "Camera1 started record.");
+		}
+		void HandlerCamera1StopRecord()
+		{
+			//ShowMessageBox("Stoped Record", "Camera1 stoped record.");
+		}
+		void HandlerCamera2StartRecord()
+		{
+			//ShowMessageBox("Started Record.", "Camera2 started record.");
+		}
+		void HandlerCamera2StopRecord()
+		{
+			//ShowMessageBox("Stoped Record", "Camera2 stoped record.");
+		}
+		#endregion
 
 		public void SetGridViewHeightBasedOnChildren(GridView gridView, int columns)
 		{

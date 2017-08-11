@@ -110,6 +110,7 @@
     <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\xamarin_logo%402x.png" />
     <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\xamarin_logo%403x.png" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ViewControllers\TabBarController.cs" />

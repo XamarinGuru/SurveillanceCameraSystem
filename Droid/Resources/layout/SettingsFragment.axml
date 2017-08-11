@@ -47,14 +47,14 @@
                 <SeekBar
                     android:id="@+id/sliderEventsMax"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:progress="32"
                     android:thumb="@drawable/item_seekbarthumb_light"
                     android:max="100"
                     android:splitTrack="false"
                     android:progressDrawable="@drawable/item_seekbar_dark"
-                    android:minHeight="4dp"
-                    android:maxHeight="4dp" />
+                    android:minHeight="6dp"
+                    android:maxHeight="6dp" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
@@ -142,14 +142,14 @@
                 <SeekBar
                     android:id="@+id/sliderEventsDuration"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:progress="58"
                     android:thumb="@drawable/item_seekbarthumb_dark"
                     android:max="100"
                     android:splitTrack="false"
                     android:progressDrawable="@drawable/item_seekbar_dark"
-                    android:minHeight="4dp"
-                    android:maxHeight="4dp" />
+                    android:minHeight="6dp"
+                    android:maxHeight="6dp" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
@@ -242,9 +242,9 @@
                     android:max="100"
                     android:splitTrack="false"
                     android:progressDrawable="@drawable/item_seekbar_light"
-                    android:minHeight="4dp"
-                    android:maxHeight="4dp"
-                    android:thumb="@null" />
+                    android:thumb="@null"
+                    android:minHeight="6dp"
+                    android:maxHeight="6dp" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
