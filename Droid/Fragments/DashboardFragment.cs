@@ -52,8 +52,6 @@ namespace SCS.Fragments
             lblSymbolNumber.Text = dummyData.Count.ToString();
 		}
 
-
-
         public override void InitTheme()
         {
             var cameraResource = AppSettings.CurrentTheme == TYPE_THEME.DARK ? Resource.Drawable.item_btnCameraRecord_dark : Resource.Drawable.item_btnCameraRecord_light;
@@ -70,7 +68,28 @@ namespace SCS.Fragments
 			var returnData = new List<CameraListItem>();
 			for (int i = 0; i < 20; i++)
 			{
-				returnData.Add(new CameraListItem(TYPE_ACTION.TRIPWIRE, null, String.Format("{0:d/M/yyyy HH:mm:ss}", DateTime.Now)));
+				//generate alert type
+				TYPE_ACTION alertType = TYPE_ACTION.CAMERA;
+                switch(i % 4)
+                {
+                    case 0:
+                        alertType = TYPE_ACTION.CAMERA;
+                        break;
+					case 1:
+                        alertType = TYPE_ACTION.MOTION;
+						break;
+					case 2:
+                        alertType = TYPE_ACTION.NOTIFICATION;
+						break;
+					case 3:
+                        alertType = TYPE_ACTION.SOUNDER;
+						break;
+					case 4:
+                        alertType = TYPE_ACTION.TRIPWIRE;
+						break;
+                }
+
+				returnData.Add(new CameraListItem(alertType, null, String.Format("{0:d/M/yyyy HH:mm:ss}", DateTime.Now)));
 			}
 			return returnData;
 		}

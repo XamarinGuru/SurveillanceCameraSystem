@@ -91,6 +91,8 @@ namespace SCS.Fragments
             mView.FindViewById(Resource.Id.ActionCameraDirection6).Click += ActionCameraDirection;
             mView.FindViewById(Resource.Id.ActionCameraDirection7).Click += ActionCameraDirection;
 
+            btnCamera.Click += ActionCameraRecord;
+
             btnZoomIn.Touch += ActionCameraZoom;
             btnZoomOut.Touch += ActionCameraZoom;
 
@@ -240,6 +242,19 @@ namespace SCS.Fragments
 		private void ActionCameraDirection(object sender, EventArgs e)
 		{
             //var direction = int.Parse((sender as ImageButton).Tag.ToString());
+		}
+
+		private void ActionCameraRecord(object sender, EventArgs e)
+		{
+			var cameraRecord = sender as CheckBox;
+			if (cameraRecord.Checked)
+			{
+				//HandlerCameraStartRecord();
+			}
+			else
+			{
+				//HandlerCameraStopRecord();
+			}
 		}
 
 		private void ActionAction(object sender, EventArgs e)

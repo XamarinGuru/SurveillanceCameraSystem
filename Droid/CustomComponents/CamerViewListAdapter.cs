@@ -55,23 +55,23 @@ namespace SCS.CustomComponents
 			switch (item.type)
 			{
 				case TYPE_ACTION.MOTION:
-                    imgAction.SetBackgroundResource(Resource.Drawable.icon_motiondetect_inactie_dark);
+                    imgAction.SetImageResource(Resource.Drawable.icon_motiondetect_inactie_dark);
 					lblAction.Text = "MOTION";
 					break;
 				case TYPE_ACTION.CAMERA:
-                    imgAction.SetBackgroundResource(Resource.Drawable.icon_cameradisconnect_inactive_dark);
+                    imgAction.SetImageResource(Resource.Drawable.icon_cameradisconnect_inactive_dark);
 					lblAction.Text = "CAMERA";
 					break;
 				case TYPE_ACTION.NOTIFICATION:
-					imgAction.SetBackgroundResource(Resource.Drawable.icon_notification_inactie_dark);
+					imgAction.SetImageResource(Resource.Drawable.icon_notification_inactie_dark);
 					lblAction.Text = "NOTIFICATION";
 					break;
 				case TYPE_ACTION.TRIPWIRE:
-					imgAction.SetBackgroundResource(Resource.Drawable.icon_tripwire_inactie_dark);
+					imgAction.SetImageResource(Resource.Drawable.icon_tripwire_inactie_dark);
 					lblAction.Text = "TRIPWIRE";
 					break;
 				case TYPE_ACTION.SOUNDER:
-					imgAction.SetBackgroundResource(Resource.Drawable.icon_sounder_inactie_dark);
+					imgAction.SetImageResource(Resource.Drawable.icon_sounder_inactie_dark);
 					lblAction.Text = "SOUNDER";
 					break;
 			}

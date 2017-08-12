@@ -87,6 +87,7 @@ namespace SCS.Fragments
 			};
 
             btnScanQR = mView.FindViewById<ImageButton>(Resource.Id.btnScanQR);
+            btnScanQR.Click += ActionScanQR;
 		}
 
         public override void InitTheme()
@@ -144,5 +145,10 @@ namespace SCS.Fragments
 
 			rootActivity.RequestedOrientation = ScreenOrientation.Portrait;
         }
-    }
+
+		private void ActionScanQR(object sender, EventArgs e)
+		{
+			//throw new NotImplementedException();
+		}
+	}
 }
